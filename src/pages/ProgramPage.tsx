@@ -1,5 +1,6 @@
 import { MapLocation } from '@/components/MapLocation';
 import { Button } from '@/components/ui/button';
+import { ImageWithSkeleton } from '@/components/ui/image-with-skeleton';
 import { Link } from 'react-router-dom';
 import programActivity from '@/assets/program-activity.jpg';
 
@@ -22,7 +23,7 @@ const ProgramPage = () => {
             {/* Left - Overview */}
             <div className="space-y-8">
               <div className="rounded-lg overflow-hidden border-2 border-primary/30">
-                <img 
+                <ImageWithSkeleton
                   src={programActivity}
                   alt="Children working together in a group activity during WOW Program session"
                   loading="lazy"

@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { ImageWithSkeleton } from '@/components/ui/image-with-skeleton';
 import { Link } from 'react-router-dom';
 import { Brain, Users, Heart, Star } from 'lucide-react';
 import heroKids from '@/assets/hero-kids.jpg';
@@ -28,7 +29,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-dark-bg via-black-bg to-dark-bg pt-28 pb-20 md:pt-36 md:pb-32 min-h-[600px] md:min-h-[700px] overflow-hidden">
         <div className="absolute inset-0 opacity-60">
-          <img 
+          <ImageWithSkeleton
             src={heroKids}
             alt="Diverse group of confident children aged 6-12 with ADHD showing success and joy"
             className="w-full h-full object-cover object-center"

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { ImageWithSkeleton } from '@/components/ui/image-with-skeleton';
 import lindsayHeadshot from '@/assets/lindsay-headshot.webp';
 import erinHeadshot from '@/assets/erin-headshot.webp';
 
@@ -60,11 +61,12 @@ So, if you're ready to set forth on a journey where success is the destination, 
                 className="bg-dark-bg/50 backdrop-blur-sm p-8 rounded-xl border-2 border-primary/20 hover:border-primary/40 transition-all"
               >
                 <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary shadow-glow transition-all duration-300 hover:scale-110 hover:shadow-[0_0_40px_rgba(80,200,120,0.6)] hover:border-primary-hover group cursor-pointer">
-                  <img 
+                  <ImageWithSkeleton
                     src={member.image}
                     alt={`Professional headshot of ${member.name}, Occupational Therapist`}
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    skeletonClassName="rounded-full"
                   />
                 </div>
 

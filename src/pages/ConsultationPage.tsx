@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { ImageWithSkeleton } from '@/components/ui/image-with-skeleton';
 import { Link } from 'react-router-dom';
 import consultationVirtual from '@/assets/consultation-virtual.jpg';
 
@@ -29,7 +30,7 @@ const ConsultationPage = () => {
                 </p>
               </div>
               <div className="rounded-lg overflow-hidden border-2 border-primary/30">
-                <img 
+                <ImageWithSkeleton
                   src={consultationVirtual}
                   alt="Parent and occupational therapist in friendly virtual consultation discussing child's needs"
                   loading="lazy"

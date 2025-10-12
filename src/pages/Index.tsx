@@ -31,7 +31,7 @@ const Index = () => {
           <img 
             src={heroKids}
             alt="Diverse group of confident children aged 6-12 with ADHD showing success and joy"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black-bg/40 via-black-bg/50 to-black-bg/90" />

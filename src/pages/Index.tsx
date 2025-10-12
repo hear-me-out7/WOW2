@@ -37,10 +37,10 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black-bg/40 via-black-bg/50 to-black-bg/90" />
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-heading uppercase text-primary text-5xl md:text-7xl tracking-heading-lg mb-6 drop-shadow-glow animate-fade-in">
+            <h1 className="font-heading uppercase text-primary text-5xl md:text-7xl tracking-heading-lg mb-6 drop-shadow-glow animate-fade-in" style={{ textShadow: '0 4px 12px rgba(0, 0, 0, 0.9), 0 2px 6px rgba(0, 0, 0, 0.8)' }}>
               EMPOWERING KIDS WITH ADHD
             </h1>
-            <p className="text-white font-body text-xl md:text-2xl mb-8 leading-relaxed">
+            <p className="text-white font-body text-xl md:text-2xl mb-8 leading-relaxed px-4 py-2 rounded-lg bg-black/30 backdrop-blur-sm">
               Revolutionary occupational therapy helping children understand their challenges and develop personalized strategies to ignite learning
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

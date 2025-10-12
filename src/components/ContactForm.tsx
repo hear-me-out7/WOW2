@@ -31,7 +31,34 @@ export const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
-      // Send email using EmailJS (user needs to set up their account)
+      // EmailJS Configuration - Add these to your environment:
+      // VITE_EMAILJS_SERVICE_ID=your_service_id
+      // VITE_EMAILJS_TEMPLATE_ID=your_template_id  
+      // VITE_EMAILJS_PUBLIC_KEY=your_public_key
+      
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        // EmailJS not configured - log for now
+        console.log('EmailJS not configured. Form data:', {
+          name: data.name,
+          email: data.email,
+          phone: data.phone || 'Not provided',
+          message: data.message,
+        });
+        
+        toast({
+          title: "Message received!",
+          description: "We'll get back to you soon. (Note: EmailJS needs configuration)",
+        });
+        
+        reset();
+        return;
+      }
+
+      // Send email using EmailJS
       const templateParams = {
         from_name: data.name,
         from_email: data.email,
@@ -40,9 +67,7 @@ export const ContactForm = () => {
         to_email: 'wowoccupationaltherapy@gmail.com',
       };
 
-      // Note: User needs to configure EmailJS with their account
-      // For now, just show success message
-      console.log('Form data:', templateParams);
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
       
       toast({
         title: "Message sent!",
@@ -170,9 +195,7 @@ export const ContactForm = () => {
         )}
       </Button>
 
-      <p className="text-xs text-gray-400 text-center">
-        This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
-      </p>
+
     </form>
   );
 };

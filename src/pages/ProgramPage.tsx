@@ -119,7 +119,7 @@ const ProgramPage = () => {
                 <div className="space-y-3 text-white font-body">
                   <p className="text-lg">
                     <strong className="text-primary">Email us for inquiries:</strong><br />
-                    <a href="mailto:contact@wowot.ca" className="hover:text-primary transition-colors">contact@wowot.ca</a>
+                    <a href="mailto:wowoccupationaltherapy@gmail.com" className="hover:text-primary transition-colors">wowoccupationaltherapy@gmail.com</a>
                   </p>
                   <p className="text-lg">
                     <strong className="text-primary">Limited Spots Available</strong><br />

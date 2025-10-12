@@ -59,11 +59,11 @@ So, if you're ready to set forth on a journey where success is the destination, 
                 key={member.id}
                 className="bg-dark-bg/50 backdrop-blur-sm p-8 rounded-xl border-2 border-primary/20 hover:border-primary/40 transition-all"
               >
-                <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary shadow-glow">
+                <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary shadow-glow transition-all duration-300 hover:scale-110 hover:shadow-[0_0_40px_rgba(80,200,120,0.6)] hover:border-primary-hover group cursor-pointer">
                   <img 
                     src={member.image}
                     alt={`Professional headshot of ${member.name}, Occupational Therapist`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
 

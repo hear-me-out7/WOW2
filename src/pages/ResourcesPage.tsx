@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { FileText, BookOpen, Activity, Wind, Heart, Lightbulb } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import ResourceDownloadForm from '@/components/ResourceDownloadForm';
@@ -9,37 +10,37 @@ const ResourcesPage = () => {
       title: 'ADHD & OT',
       icon: FileText,
       description: 'Understanding how occupational therapy supports children with ADHD',
-      status: 'Coming Soon',
+      link: '/resources/adhd-and-ot',
     },
     {
       title: 'Executive Functioning',
       icon: BookOpen,
       description: 'Strategies to improve planning, organization, and time management',
-      status: 'Coming Soon',
+      link: '/resources/executive-functioning',
     },
     {
       title: 'Sensory Motor',
       icon: Activity,
       description: 'Activities to support sensory processing and motor development',
-      status: 'Coming Soon',
+      link: '/resources/sensory-motor',
     },
     {
       title: 'Breath & Posture',
       icon: Wind,
       description: 'Techniques for body awareness and self-regulation',
-      status: 'Coming Soon',
+      link: '/resources/breath-and-posture',
     },
     {
       title: 'Social Emotional',
       icon: Heart,
       description: 'Building emotional intelligence and social skills',
-      status: 'Coming Soon',
+      link: '/resources/social-emotional',
     },
     {
       title: 'Tips & Tricks',
       icon: Lightbulb,
       description: 'Practical daily strategies for parents and caregivers',
-      status: 'Coming Soon',
+      link: '/resources/tips-and-tricks',
     },
   ];
 
@@ -102,10 +103,10 @@ const ResourcesPage = () => {
                     {resource.description}
                   </p>
                   <Button
-                    disabled
-                    className="w-full bg-muted hover:bg-muted text-muted-foreground uppercase font-body"
+                    asChild
+                    className="w-full bg-primary hover:bg-primary-hover text-white uppercase font-body"
                   >
-                    {resource.status}
+                    <Link to={resource.link}>Read More</Link>
                   </Button>
                 </div>
               );

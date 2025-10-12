@@ -18,6 +18,12 @@ import ConsultationPage from "./pages/ConsultationPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import ConnectPage from "./pages/ConnectPage";
 import NotFound from "./pages/NotFound";
+import AdhdAndOtPage from "./pages/resources/AdhdAndOtPage";
+import ExecutiveFunctioningPage from "./pages/resources/ExecutiveFunctioningPage";
+import TipsAndTricksPage from "./pages/resources/TipsAndTricksPage";
+import SensoryMotorPage from "./pages/resources/SensoryMotorPage";
+import SocialEmotionalPage from "./pages/resources/SocialEmotionalPage";
+import BreathAndPosturePage from "./pages/resources/BreathAndPosturePage";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +38,12 @@ const AnimatedRoutes = () => {
         <Route path="/team" element={<PageTransition><TeamPage /></PageTransition>} />
         <Route path="/consultation" element={<PageTransition><ConsultationPage /></PageTransition>} />
         <Route path="/resources" element={<PageTransition><ResourcesPage /></PageTransition>} />
+        <Route path="/resources/adhd-and-ot" element={<AdhdAndOtPage />} />
+        <Route path="/resources/executive-functioning" element={<ExecutiveFunctioningPage />} />
+        <Route path="/resources/tips-and-tricks" element={<TipsAndTricksPage />} />
+        <Route path="/resources/sensory-motor" element={<SensoryMotorPage />} />
+        <Route path="/resources/social-emotional" element={<SocialEmotionalPage />} />
+        <Route path="/resources/breath-and-posture" element={<BreathAndPosturePage />} />
         <Route path="/connect" element={<PageTransition><ConnectPage /></PageTransition>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>

@@ -28,7 +28,7 @@ const App = () => (
         <SkipToContent />
         <div className="min-h-screen flex flex-col bg-black-bg">
           <Header />
-          <main id="main-content" className="flex-1 pt-16 pb-20 md:pb-0" tabIndex={-1}>
+          <main id="main-content" className="flex-1 pb-20 md:pb-0" tabIndex={-1}>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/program" element={<ProgramPage />} />

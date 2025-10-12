@@ -26,12 +26,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-black-bg">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-dark-bg via-black-bg to-dark-bg py-20 md:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-b from-dark-bg via-black-bg to-dark-bg pt-28 pb-20 md:pt-36 md:pb-32 min-h-[600px] md:min-h-[700px] overflow-hidden">
         <div className="absolute inset-0 opacity-60">
           <img 
             src={heroKids}
             alt="Diverse group of confident children aged 6-12 with ADHD showing success and joy"
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-cover object-center"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-black-bg/40 via-black-bg/50 to-black-bg/90" />

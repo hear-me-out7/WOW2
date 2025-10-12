@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import wowLogo from '@/assets/wow_logo.webp';
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
@@ -19,13 +20,12 @@ export const Header = () => {
     <header className="bg-primary sticky top-0 z-50 shadow-lg">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex flex-col">
-          <span className="font-heading text-2xl md:text-3xl text-white tracking-wider">
-            WOW
-          </span>
-          <span className="font-body text-xs md:text-sm text-white/90 -mt-1">
-            occupational therapy
-          </span>
+        <Link to="/" className="flex items-center">
+          <img 
+            src={wowLogo} 
+            alt="WOW Occupational Therapy" 
+            className="h-12 md:h-16 w-auto"
+          />
         </Link>
 
         {/* Mobile Menu */}

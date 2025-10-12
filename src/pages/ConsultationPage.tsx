@@ -32,6 +32,7 @@ const ConsultationPage = () => {
                 <img 
                   src={consultationVirtual}
                   alt="Parent and occupational therapist in friendly virtual consultation discussing child's needs"
+                  loading="lazy"
                   className="w-full h-auto"
                 />
               </div>

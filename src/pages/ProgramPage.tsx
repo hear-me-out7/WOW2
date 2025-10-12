@@ -25,6 +25,7 @@ const ProgramPage = () => {
                 <img 
                   src={programActivity}
                   alt="Children working together in a group activity during WOW Program session"
+                  loading="lazy"
                   className="w-full h-auto"
                 />
               </div>

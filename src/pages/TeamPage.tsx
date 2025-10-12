@@ -63,6 +63,7 @@ So, if you're ready to set forth on a journey where success is the destination, 
                   <img 
                     src={member.image}
                     alt={`Professional headshot of ${member.name}, Occupational Therapist`}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>

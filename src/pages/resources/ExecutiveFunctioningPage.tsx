@@ -3,13 +3,17 @@ import { ResourceBreadcrumb } from '@/components/resources/ResourceBreadcrumb';
 import { ResourceHero } from '@/components/resources/ResourceHero';
 import { ResourceSection } from '@/components/resources/ResourceSection';
 import { ResourceCard } from '@/components/resources/ResourceCard';
-import { ResourceCTA } from '@/components/resources/ResourceCTA';
 import { PageTransition } from '@/components/PageTransition';
+import ResourceStickyCtaSidebar from '@/components/ResourceStickyCtaSidebar';
+import ResourceInlineCta from '@/components/ResourceInlineCta';
+import ResourceEndCta from '@/components/ResourceEndCta';
+import ResourceDownloadGate from '@/components/ResourceDownloadGate';
+import RelatedResourcesUpsell from '@/components/RelatedResourcesUpsell';
 
 const ExecutiveFunctioningPage = () => {
   return (
     <PageTransition>
-      <div className="min-h-screen bg-black-bg">
+      <div className="min-h-screen bg-background">
         <ResourceBreadcrumb resourceTitle="Executive Functioning" />
 
         <ResourceHero
@@ -18,10 +22,23 @@ const ExecutiveFunctioningPage = () => {
           description="Strategies to improve planning, organization, time management, and other essential brain management skills"
         />
 
+        {/* Main Content with Sidebar */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="grid lg:grid-cols-[1fr_300px] gap-8 items-start">
+            {/* Main Content */}
+            <div>
+              {/* Download Gate */}
+              <ResourceDownloadGate
+                resourceTitle="Executive Function Strategies Guide"
+                resourceDescription="Download this comprehensive guide with practical strategies for improving planning, organization, and time management skills."
+                magnetId="executive-function-tips"
+                className="mb-8"
+              />
+
         {/* Introduction */}
         <ResourceSection bgColor="dark">
-          <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
-            <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6">
+          <div className="space-y-6 text-white font-body text-lg leading-relaxed">
+            <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading mb-6">
               What is Executive Functioning?
             </h2>
             <p>
@@ -38,11 +55,11 @@ const ExecutiveFunctioningPage = () => {
 
         {/* ADHD Connection */}
         <ResourceSection bgColor="black">
-          <div className="bg-dark-bg/50 backdrop-blur-sm p-8 md:p-12 rounded-xl border-2 border-primary/30">
+          <div className="bg-card p-8 md:p-12 rounded-xl border-2 border-primary/30">
             <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6">
               ADHD and Executive Function Challenges
             </h2>
-            <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
+            <div className="space-y-6 text-foreground font-body text-lg leading-relaxed">
               <p>
                 Executive function challenges are at the core of ADHD. While many people think ADHD is primarily about attention, it's really about managing attention, emotions, actions, and time. Children with ADHD know what they need to do—the challenge is actually doing it when they need to do it.
               </p>
@@ -56,9 +73,15 @@ const ExecutiveFunctioningPage = () => {
           </div>
         </ResourceSection>
 
+        {/* Inline CTA 1 */}
+        <ResourceInlineCta
+          variant="consultation"
+          message="Struggling with executive function challenges? Let's create a personalized plan to help your child develop these crucial skills."
+        />
+
         {/* The 8 Executive Functions */}
         <ResourceSection bgColor="dark" title="The 8 Key Executive Function Skills">
-          <div className="space-y-4 mb-8 text-white/90 font-body text-lg">
+          <div className="space-y-4 mb-8 text-white font-body text-lg">
             <p>
               Research identifies eight core executive function skills that work together to help us navigate daily life. Let's explore each one and how occupational therapy can help strengthen these skills in children with ADHD.
             </p>
@@ -163,54 +186,60 @@ const ExecutiveFunctioningPage = () => {
           </div>
         </ResourceSection>
 
+        {/* Inline CTA 2 */}
+        <ResourceInlineCta
+          variant="program"
+          message="Our WOW Program provides structured support for building executive function skills that last a lifetime."
+        />
+
         {/* Practical Strategies */}
         <ResourceSection bgColor="black" title="Practical Strategies for Home">
-          <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
+          <div className="space-y-6 text-white font-body text-lg leading-relaxed">
             <p>
               Supporting executive function development at home doesn't require expensive tools or complicated systems. Here are practical strategies families can implement right away:
             </p>
 
-            <div className="bg-dark-bg/50 backdrop-blur-sm p-6 md:p-8 rounded-xl border-2 border-primary/20">
+            <div className="bg-card p-6 md:p-8 rounded-xl border-2 border-primary/20">
               <h3 className="font-heading uppercase text-primary text-xl mb-4">
                 Create Predictable Routines
               </h3>
-              <p>
+              <p className="text-foreground">
                 Routines reduce the executive function load by making activities automatic. Create visual routine charts for morning, after-school, and bedtime. Practice these routines consistently until they become habits. The more automatic the routine, the less executive function it requires.
               </p>
             </div>
 
-            <div className="bg-dark-bg/50 backdrop-blur-sm p-6 md:p-8 rounded-xl border-2 border-primary/20">
+            <div className="bg-card p-6 md:p-8 rounded-xl border-2 border-primary/20">
               <h3 className="font-heading uppercase text-primary text-xl mb-4">
                 Use Visual Supports
               </h3>
-              <p>
+              <p className="text-foreground">
                 Make abstract concepts concrete. Use visual schedules, checklists, step-by-step pictorial instructions, and color-coding systems. Visual supports reduce the working memory load and provide external organization when internal organization is challenging.
               </p>
             </div>
 
-            <div className="bg-dark-bg/50 backdrop-blur-sm p-6 md:p-8 rounded-xl border-2 border-primary/20">
+            <div className="bg-card p-6 md:p-8 rounded-xl border-2 border-primary/20">
               <h3 className="font-heading uppercase text-primary text-xl mb-4">
                 Build in External Structure
               </h3>
-              <p>
+              <p className="text-foreground">
                 Since internal structure is developing, provide external structure. This includes physical organization systems, timers and alarms, consistent spaces for specific activities, and clear expectations posted where they can be seen.
               </p>
             </div>
 
-            <div className="bg-dark-bg/50 backdrop-blur-sm p-6 md:p-8 rounded-xl border-2 border-primary/20">
+            <div className="bg-card p-6 md:p-8 rounded-xl border-2 border-primary/20">
               <h3 className="font-heading uppercase text-primary text-xl mb-4">
                 Practice Skills During Calm Times
               </h3>
-              <p>
+              <p className="text-foreground">
                 Executive function skills are best learned when stress is low. Practice planning, organizing, and problem-solving during calm moments, not in the heat of the moment when these skills are most challenged.
               </p>
             </div>
 
-            <div className="bg-dark-bg/50 backdrop-blur-sm p-6 md:p-8 rounded-xl border-2 border-primary/20">
+            <div className="bg-card p-6 md:p-8 rounded-xl border-2 border-primary/20">
               <h3 className="font-heading uppercase text-primary text-xl mb-4">
                 Celebrate Effort and Progress
               </h3>
-              <p>
+              <p className="text-foreground">
                 Executive function development takes time. Celebrate small wins—starting a task on time, remembering to bring home materials, successfully using a new strategy. Recognition and positive feedback strengthen these developing skills.
               </p>
             </div>
@@ -220,10 +249,10 @@ const ExecutiveFunctioningPage = () => {
         {/* Working with OT */}
         <ResourceSection bgColor="dark">
           <div className="bg-gradient-to-b from-black-bg to-dark-bg p-8 md:p-12 rounded-xl border-2 border-primary/30 shadow-glow">
-            <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6 text-center">
+            <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading mb-6 text-center">
               How Occupational Therapy Helps
             </h2>
-            <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
+            <div className="space-y-6 text-white font-body text-lg leading-relaxed">
               <p>
                 Occupational therapists are experts in breaking down complex tasks, identifying which executive function skills are needed for different activities, and creating individualized strategies that work with your child's unique brain.
               </p>
@@ -240,7 +269,39 @@ const ExecutiveFunctioningPage = () => {
           </div>
         </ResourceSection>
 
-        <ResourceCTA />
+              {/* Related Resources */}
+              <RelatedResourcesUpsell
+                resources={[
+                  {
+                    title: 'ADHD & Occupational Therapy',
+                    description: 'Understanding how OT supports children with ADHD in developing essential life skills',
+                    link: '/resources/adhd-and-ot',
+                    icon: 'brain',
+                  },
+                  {
+                    title: 'Tips & Tricks for Daily Success',
+                    description: 'Quick, practical strategies you can implement today to support your child',
+                    link: '/resources/tips-and-tricks',
+                    icon: 'target',
+                  },
+                  {
+                    title: 'Social & Emotional Growth',
+                    description: 'Building self-regulation and emotional awareness for better daily functioning',
+                    link: '/resources/social-emotional',
+                    icon: 'heart',
+                  },
+                ]}
+                className="mb-8"
+              />
+
+              {/* End CTA */}
+              <ResourceEndCta />
+            </div>
+
+            {/* Sticky Sidebar */}
+            <ResourceStickyCtaSidebar />
+          </div>
+        </div>
       </div>
     </PageTransition>
   );

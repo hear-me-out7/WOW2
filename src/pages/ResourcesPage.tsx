@@ -72,7 +72,7 @@ const ResourcesPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black-bg">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <section className="bg-gradient-to-b from-dark-bg to-black-bg py-16 md:py-20 border-b-4 border-primary">
         <div className="container mx-auto px-4 lg:px-8">
@@ -83,7 +83,7 @@ const ResourcesPage = () => {
       </section>
 
       {/* Resource Cards */}
-      <section className="bg-black-bg py-16 md:py-24">
+      <section className="bg-background py-16 md:py-24">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
             {resources.map((resource, index) => {
@@ -91,7 +91,7 @@ const ResourcesPage = () => {
               return (
                 <div
                   key={index}
-                  className="bg-dark-bg/50 backdrop-blur-sm p-8 rounded-xl border-2 border-primary/20 hover:border-primary/40 transition-all hover:scale-105 h-full flex flex-col"
+                  className="bg-card p-8 rounded-xl border-2 border-primary/20 hover:border-primary/40 transition-all hover:scale-105 h-full flex flex-col"
                 >
                   <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4">
                     <Icon className="text-primary" size={32} />
@@ -99,7 +99,7 @@ const ResourcesPage = () => {
                   <h3 className="font-heading uppercase text-primary text-xl mb-2">
                     {resource.title}
                   </h3>
-                  <p className="text-white/70 font-body mb-4 flex-grow">
+                  <p className="text-foreground/70 font-body mb-4 flex-grow">
                     {resource.description}
                   </p>
                   <Button
@@ -116,7 +116,7 @@ const ResourcesPage = () => {
       </section>
 
       {/* Free Resource Download */}
-      <section className="bg-black-bg py-16 md:py-24 border-t-4 border-primary/30">
+      <section className="bg-background py-16 md:py-24 border-t-4 border-primary/30">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-2xl mx-auto">
             <ResourceDownloadForm />
@@ -128,7 +128,7 @@ const ResourcesPage = () => {
       <section className="bg-dark-bg py-16 md:py-24 border-t-4 border-primary/30">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading uppercase text-primary text-3xl md:text-4xl text-center mb-12">
+            <h2 className="font-heading uppercase text-white text-3xl md:text-4xl text-center mb-12">
               FREQUENTLY ASKED QUESTIONS
             </h2>
             <Accordion type="single" collapsible className="space-y-4">
@@ -136,12 +136,12 @@ const ResourcesPage = () => {
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="bg-black-bg/50 backdrop-blur-sm border-2 border-primary/20 rounded-lg px-6"
+                  className="bg-card border-2 border-primary/20 rounded-lg px-6"
                 >
-                  <AccordionTrigger className="font-body text-white text-left hover:text-primary">
+                  <AccordionTrigger className="font-body text-foreground text-left hover:text-primary">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="font-body text-white/80 leading-relaxed">
+                  <AccordionContent className="font-body text-foreground leading-relaxed">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>

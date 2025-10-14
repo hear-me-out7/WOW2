@@ -56,7 +56,7 @@ export const MapLocation = ({ lat, lng, name, address, className = "" }: MapLoca
   }, [lat, lng, name, address]);
 
   return (
-    <div className={`rounded-lg overflow-hidden border-2 border-primary/30 ${className}`}>
+    <div className={`rounded-lg overflow-hidden border-2 border-primary/30 relative z-0 ${className}`}>
       <div ref={containerRef} style={{ height: '100%', width: '100%', minHeight: '300px' }} />
     </div>
   );

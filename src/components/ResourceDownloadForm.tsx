@@ -58,10 +58,10 @@ const ResourceDownloadForm = () => {
 
   if (isSubmitted) {
     return (
-      <div className="bg-dark-bg/80 backdrop-blur-sm p-8 rounded-xl border-2 border-primary/30 text-center">
+      <div className="bg-card p-8 rounded-xl border-2 border-primary/30 text-center">
         <CheckCircle2 className="w-16 h-16 text-primary mx-auto mb-4" />
         <h3 className="font-heading uppercase text-primary text-2xl mb-2">Success!</h3>
-        <p className="text-white/90 font-body text-lg">
+        <p className="text-foreground font-body text-lg">
           Your download should start automatically. Check your downloads folder!
         </p>
       </div>
@@ -69,7 +69,7 @@ const ResourceDownloadForm = () => {
   }
 
   return (
-    <div className="bg-dark-bg/80 backdrop-blur-sm p-8 rounded-xl border-2 border-primary/30">
+    <div className="bg-card p-8 rounded-xl border-2 border-primary/30">
       <div className="flex items-center gap-4 mb-6">
         <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
           <FileDown className="text-primary" size={32} />
@@ -78,19 +78,19 @@ const ResourceDownloadForm = () => {
           <h3 className="font-heading uppercase text-primary text-2xl">
             Free ADHD Resource
           </h3>
-          <p className="text-white/70 font-body">
+          <p className="text-foreground/70 font-body">
             ADHD - Being Hung Up on Reflexes
           </p>
         </div>
       </div>
 
-      <p className="text-white/90 font-body mb-6 leading-relaxed">
+      <p className="text-foreground font-body mb-6 leading-relaxed">
         Discover the connection between primitive reflexes and ADHD symptoms. Learn practical strategies to support your child's development and success.
       </p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
-          <Label htmlFor="resource-name" className="text-white font-body mb-2 block">
+          <Label htmlFor="resource-name" className="text-foreground font-body mb-2 block">
             Name *
           </Label>
           <Input
@@ -100,7 +100,7 @@ const ResourceDownloadForm = () => {
             aria-required="true"
             aria-invalid={errors.name ? "true" : "false"}
             aria-describedby={errors.name ? "resource-name-error" : undefined}
-            className="bg-black-bg/50 border-primary/30 text-white font-body focus:border-primary min-h-[44px]"
+            className="bg-background border-primary/30 text-foreground font-body focus:border-primary min-h-[44px]"
             placeholder="Your name"
           />
           {errors.name && (
@@ -111,7 +111,7 @@ const ResourceDownloadForm = () => {
         </div>
 
         <div>
-          <Label htmlFor="resource-email" className="text-white font-body mb-2 block">
+          <Label htmlFor="resource-email" className="text-foreground font-body mb-2 block">
             Email *
           </Label>
           <Input
@@ -122,7 +122,7 @@ const ResourceDownloadForm = () => {
             aria-required="true"
             aria-invalid={errors.email ? "true" : "false"}
             aria-describedby={errors.email ? "resource-email-error" : undefined}
-            className="bg-black-bg/50 border-primary/30 text-white font-body focus:border-primary min-h-[44px]"
+            className="bg-background border-primary/30 text-foreground font-body focus:border-primary min-h-[44px]"
             placeholder="your@email.com"
           />
           {errors.email && (

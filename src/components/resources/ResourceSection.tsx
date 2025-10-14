@@ -20,12 +20,18 @@ export const ResourceSection = ({
     primary: 'bg-gradient-to-b from-black-bg to-dark-bg',
   };
 
+  const titleColorClasses = {
+    black: 'text-white',
+    dark: 'text-white',
+    primary: 'text-primary',
+  };
+
   return (
     <section className={cn(bgClasses[bgColor], 'py-12 md:py-16', className)}>
       <div className="container mx-auto px-4 lg:px-8">
         <div className="max-w-5xl mx-auto">
           {title && (
-            <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-8">
+            <h2 className={cn("font-heading uppercase text-2xl md:text-3xl tracking-heading mb-8", titleColorClasses[bgColor])}>
               {title}
             </h2>
           )}

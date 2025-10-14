@@ -4,7 +4,7 @@ import { Facebook, Instagram } from 'lucide-react';
 
 const ConnectPage = () => {
   return (
-    <div className="min-h-screen bg-black-bg">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <section className="bg-gradient-to-b from-dark-bg to-black-bg py-16 md:py-20 border-b-4 border-primary">
         <div className="container mx-auto px-4 lg:px-8">
@@ -15,7 +15,7 @@ const ConnectPage = () => {
       </section>
 
       {/* Wanna Be Social */}
-      <section className="bg-black-bg py-16">
+      <section className="bg-background py-16">
         <div className="container mx-auto px-4 lg:px-8 text-center">
           <h2 className="font-heading uppercase text-primary text-3xl mb-8">
             WANNA BE SOCIAL?
@@ -51,7 +51,7 @@ const ConnectPage = () => {
       <section className="bg-dark-bg py-16 md:py-24 border-t-4 border-primary/30">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-2xl mx-auto">
-            <h2 className="font-heading uppercase text-primary text-3xl mb-4 text-center">
+            <h2 className="font-heading uppercase text-white text-3xl mb-4 text-center">
               CONTACT US
             </h2>
             <p className="text-white font-body text-lg mb-8 text-center">
@@ -63,14 +63,14 @@ const ConnectPage = () => {
       </section>
 
       {/* Location */}
-      <section className="bg-black-bg py-16 md:py-24">
+      <section className="bg-background py-16 md:py-24">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
-              <h3 className="font-heading uppercase text-white text-2xl mb-4">
+              <h3 className="font-heading uppercase text-foreground text-2xl mb-4">
                 WOW ADHD
               </h3>
-              <p className="text-white/80 font-body text-lg">
+              <p className="text-foreground/80 font-body text-lg">
                 1940 6 Avenue NW, Calgary, Alberta T2N 0W3, Canada
               </p>
             </div>

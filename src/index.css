@@ -1,3 +1,6 @@
+/* Import Leaflet CSS - must come before Tailwind */
+@import 'leaflet/dist/leaflet.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,50 +10,50 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Import Leaflet CSS */
-@import 'leaflet/dist/leaflet.css';
-
 /* WOW ADHD Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
-    --background: 0 0% 10%;
-    --foreground: 0 0% 98%;
+    /* Light Theme - Calming ADHD-Friendly Palette */
+    --background: 53 38% 95%; /* Pale cream #F6F5ED */
+    --foreground: 0 0% 16%; /* Dark charcoal #2A2A2A */
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: 53 38% 98%; /* Slightly lighter cream */
+    --card-foreground: 0 0% 16%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 53 38% 98%;
+    --popover-foreground: 0 0% 16%;
 
-    /* Primary Green: #54B07B = rgb(84, 176, 123) */
-    --primary: 146 35% 51%;
+    /* Primary: Darker Teal #1F7A6F for accessibility */
+    --primary: 172 59% 30%;
     --primary-foreground: 0 0% 100%;
     
-    /* Hover Green: #63CE90 = rgb(99, 206, 144) */
-    --primary-hover: 145 52% 60%;
+    /* Hover: Lighter Teal */
+    --primary-hover: 172 57% 52%;
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
+    /* Secondary: Soft Green #7CC196 */
+    --secondary: 143 36% 62%;
+    --secondary-foreground: 0 0% 16%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 53 10% 85%; /* Light muted with cream tint */
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 146 35% 51%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent: Warm Coral #F49390 */
+    --accent: 2 84% 76%;
+    --accent-foreground: 0 0% 16%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 53 38% 95%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 146 35% 51%;
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 172 57% 44%;
 
     --radius: 0rem;
     
-    /* Dark backgrounds */
-    --dark-bg: 0 0% 10%;
-    --black-bg: 0 0% 0%;
+    /* Softer dark backgrounds for strategic accent sections */
+    --dark-bg: 0 0% 25%;
+    --black-bg: 0 0% 15%;
   }
 
   * {

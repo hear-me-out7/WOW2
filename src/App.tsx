@@ -11,6 +11,9 @@ import { SkipToContent } from "@/components/SkipToContent";
 import { InstallPrompt } from "@/components/InstallPrompt";
 import { UpdateNotification } from "@/components/UpdateNotification";
 import { PageTransition } from "@/components/PageTransition";
+import FloatingActionButton from "@/components/FloatingActionButton";
+import ExitIntentModal from "@/components/ExitIntentModal";
+import StickyHeaderCTA from "@/components/StickyHeaderCTA";
 import Index from "./pages/Index";
 import ProgramPage from "./pages/ProgramPage";
 import TeamPage from "./pages/TeamPage";
@@ -56,9 +59,15 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <SkipToContent />
-        <div className="min-h-screen flex flex-col bg-black-bg">
+        <div className="min-h-screen flex flex-col bg-background">
+          <StickyHeaderCTA />
           <Header />
           <main id="main-content" className="flex-1 pb-20 md:pb-0" tabIndex={-1}>
             <AnimatedRoutes />
@@ -67,6 +76,8 @@ const App = () => (
           <MobileBottomNav />
           <InstallPrompt />
           <UpdateNotification />
+          <FloatingActionButton />
+          <ExitIntentModal />
         </div>
       </BrowserRouter>
     </TooltipProvider>

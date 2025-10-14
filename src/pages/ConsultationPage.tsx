@@ -1,11 +1,10 @@
-import { Button } from '@/components/ui/button';
 import { ImageWithSkeleton } from '@/components/ui/image-with-skeleton';
-import { Link } from 'react-router-dom';
+import { ConsultationBooking } from '@/components/ConsultationBooking';
 import consultationVirtual from '@/assets/consultation-virtual.jpg';
 
 const ConsultationPage = () => {
   return (
-    <div className="min-h-screen bg-black-bg">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <section className="bg-gradient-to-b from-dark-bg to-black-bg py-16 md:py-20 border-b-4 border-primary">
         <div className="container mx-auto px-4 lg:px-8">
@@ -16,7 +15,7 @@ const ConsultationPage = () => {
       </section>
 
       {/* Main Content */}
-      <section className="bg-black-bg py-16 md:py-24">
+      <section className="bg-background py-16 md:py-24">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
             {/* Image and Intro */}
@@ -25,7 +24,7 @@ const ConsultationPage = () => {
                 <h2 className="font-heading uppercase text-primary text-3xl mb-6">
                   WANNA TALK ABOUT IT?
                 </h2>
-                <p className="text-white font-body text-lg leading-relaxed">
+                <p className="text-foreground font-body text-lg leading-relaxed">
                   We offer consultations for parents navigating ADHD challenges. Our experienced occupational therapists provide personalized guidance, practical strategies, and ongoing support to help your family thrive.
                 </p>
               </div>
@@ -40,11 +39,11 @@ const ConsultationPage = () => {
             </div>
 
             {/* What to Expect */}
-            <div className="bg-dark-bg/50 backdrop-blur-sm p-8 rounded-xl border-2 border-primary/20 mb-12">
+            <div className="bg-card p-8 rounded-xl border-2 border-primary/20 mb-12">
               <h3 className="font-heading uppercase text-primary text-2xl mb-6">
                 WHAT TO EXPECT
               </h3>
-              <div className="space-y-4 text-white font-body">
+              <div className="space-y-4 text-foreground font-body">
                 <p>
                   <strong className="text-primary">• Tailored Strategies:</strong> We provide practical strategies to manage ADHD-related difficulties effectively.
                 </p>
@@ -60,24 +59,21 @@ const ConsultationPage = () => {
               </div>
             </div>
 
-            {/* Pricing */}
-            <div className="bg-dark-bg/80 backdrop-blur-sm p-8 rounded-xl border-2 border-primary/30 shadow-glow text-center mb-12">
-              <h3 className="font-heading uppercase text-primary text-2xl mb-4">
-                CONSULTATIONS
+            {/* Booking Calendar */}
+            <div className="bg-card p-8 rounded-xl border-2 border-primary/30 shadow-lg mb-12">
+              <h3 className="font-heading uppercase text-primary text-2xl mb-6 text-center">
+                BOOK YOUR CONSULTATION
               </h3>
-              <p className="text-white font-body text-lg mb-6">
-                Schedule a consultation to discuss your family's unique needs and how we can help.
-              </p>
-              <div className="mb-6">
-                <p className="font-heading text-white text-4xl mb-2">$200</p>
-                <p className="text-white/70 font-body">
-                  for 0.75hr virtual consultation with 2 OTs<br />
-                  PLUS a summary document with strategies and resources
+              <div className="mb-6 text-center">
+                <p className="text-foreground font-body text-lg mb-2">
+                  0.75hr virtual consultation with 2 OTs
+                </p>
+                <p className="font-heading text-foreground text-4xl mb-2">$200</p>
+                <p className="text-foreground/80 font-body text-sm">
+                  Includes comprehensive summary document with strategies and resources
                 </p>
               </div>
-              <Button asChild className="bg-primary hover:bg-primary-hover text-lg px-8 py-6 uppercase font-heading">
-                <Link to="/connect">CONSULTATION INQUIRY</Link>
-              </Button>
+              <ConsultationBooking />
             </div>
           </div>
         </div>

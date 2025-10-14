@@ -8,13 +8,16 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
-import emailjs from '@emailjs/browser';
+import { api } from '@/services/api';
+import type { Lead } from '@/services/api';
 
 const formSchema = z.object({
   name: z.string().trim().min(2, 'Name must be at least 2 characters').max(100, 'Name must be less than 100 characters'),
   email: z.string().trim().email('Invalid email address').max(255, 'Email must be less than 255 characters'),
   phone: z.string().trim().optional(),
   message: z.string().trim().min(10, 'Message must be at least 10 characters').max(1000, 'Message must be less than 1000 characters'),
+  interestedIn: z.enum(['consultation', 'program', 'general']).default('general'),
+  leadSource: z.string().default('website_contact_form'),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -31,43 +34,15 @@ export const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
-      // EmailJS Configuration - Add these to your environment:
-      // VITE_EMAILJS_SERVICE_ID=your_service_id
-      // VITE_EMAILJS_TEMPLATE_ID=your_template_id  
-      // VITE_EMAILJS_PUBLIC_KEY=your_public_key
-      
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-      if (!serviceId || !templateId || !publicKey) {
-        // EmailJS not configured - log for now
-        console.log('EmailJS not configured. Form data:', {
-          name: data.name,
-          email: data.email,
-          phone: data.phone || 'Not provided',
-          message: data.message,
-        });
-        
-        toast({
-          title: "Message received!",
-          description: "We'll get back to you soon. (Note: EmailJS needs configuration)",
-        });
-        
-        reset();
-        return;
-      }
-
-      // Send email using EmailJS
-      const templateParams = {
-        from_name: data.name,
-        from_email: data.email,
-        phone: data.phone || 'Not provided',
+      // Submit to backend API
+      await api.post<Lead>('/leads', {
+        name: data.name,
+        email: data.email,
+        phone: data.phone || '',
         message: data.message,
-        to_email: 'wowoccupationaltherapy@gmail.com',
-      };
-
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+        leadSource: data.leadSource,
+        interestedIn: data.interestedIn,
+      });
       
       toast({
         title: "Message sent!",
@@ -78,16 +53,8 @@ export const ContactForm = () => {
     } catch (error) {
       console.error('Form submission error:', error);
       
-      const isNetworkError = error instanceof Error && 
-        (error.message.includes('network') || error.message.includes('fetch'));
-      
-      toast({
-        title: "Error",
-        description: isNetworkError 
-          ? "Network error. Please check your connection and try again."
-          : "Failed to send message. Please try again or contact us directly.",
-        variant: "destructive",
-      });
+      // Error toast is already shown by API client
+      // Just log the error for debugging
     } finally {
       setIsSubmitting(false);
     }
@@ -154,6 +121,27 @@ export const ContactForm = () => {
         {errors.phone && (
           <p id="contact-phone-error" className="text-destructive text-sm mt-1" role="alert">
             {errors.phone.message}
+          </p>
+        )}
+      </div>
+
+      <div>
+        <Label htmlFor="contact-interested-in" className="text-white font-body mb-2 block">
+          I'm interested in *
+        </Label>
+        <select
+          id="contact-interested-in"
+          {...register('interestedIn')}
+          disabled={isSubmitting}
+          className="w-full bg-black/50 border border-white/20 focus:border-primary text-white min-h-[44px] rounded-md px-3"
+        >
+          <option value="general">General Inquiry</option>
+          <option value="consultation">Book a Consultation</option>
+          <option value="program">WOW Program Enrollment</option>
+        </select>
+        {errors.interestedIn && (
+          <p id="contact-interested-in-error" className="text-destructive text-sm mt-1" role="alert">
+            {errors.interestedIn.message}
           </p>
         )}
       </div>

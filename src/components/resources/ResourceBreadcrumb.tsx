@@ -20,7 +20,7 @@ export const ResourceBreadcrumb = ({ resourceTitle }: ResourceBreadcrumbProps) =
         <li>
           <ChevronRight className="text-white/50" size={16} />
         </li>
-        <li className="text-white/70">{resourceTitle}</li>
+        <li className="text-foreground/70">{resourceTitle}</li>
       </ol>
     </nav>
   );

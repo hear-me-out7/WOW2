@@ -3,13 +3,17 @@ import { ResourceBreadcrumb } from '@/components/resources/ResourceBreadcrumb';
 import { ResourceHero } from '@/components/resources/ResourceHero';
 import { ResourceSection } from '@/components/resources/ResourceSection';
 import { ResourceCard } from '@/components/resources/ResourceCard';
-import { ResourceCTA } from '@/components/resources/ResourceCTA';
 import { PageTransition } from '@/components/PageTransition';
+import ResourceStickyCtaSidebar from '@/components/ResourceStickyCtaSidebar';
+import ResourceInlineCta from '@/components/ResourceInlineCta';
+import ResourceEndCta from '@/components/ResourceEndCta';
+import ResourceDownloadGate from '@/components/ResourceDownloadGate';
+import RelatedResourcesUpsell from '@/components/RelatedResourcesUpsell';
 
 const AdhdAndOtPage = () => {
   return (
     <PageTransition>
-      <div className="min-h-screen bg-black-bg">
+      <div className="min-h-screen bg-background">
         <ResourceBreadcrumb resourceTitle="ADHD & Occupational Therapy" />
 
         <ResourceHero
@@ -18,10 +22,23 @@ const AdhdAndOtPage = () => {
           description="Understanding how occupational therapy supports children with ADHD in developing the skills they need to thrive"
         />
 
-        {/* Introduction */}
-        <ResourceSection bgColor="dark">
-          <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
-            <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6">
+        {/* Main Content with Sidebar */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="grid lg:grid-cols-[1fr_300px] gap-8 items-start">
+            {/* Main Content */}
+            <div>
+              {/* Download Gate */}
+              <ResourceDownloadGate
+                resourceTitle="ADHD & OT Guide"
+                resourceDescription="Get this comprehensive guide as a PDF for easy reference and sharing with your child's school team."
+                magnetId="adhd-guide"
+                className="mb-8"
+              />
+
+              {/* Introduction */}
+              <ResourceSection bgColor="dark">
+          <div className="space-y-6 text-white font-body text-lg leading-relaxed">
+            <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading mb-6">
               What is ADHD?
             </h2>
             <p>
@@ -39,8 +56,8 @@ const AdhdAndOtPage = () => {
         {/* How OT Helps */}
         <ResourceSection bgColor="black">
           <div className="grid md:grid-cols-2 gap-8 items-start">
-            <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
-              <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading">
+            <div className="space-y-6 text-white font-body text-lg leading-relaxed">
+              <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading">
                 How Occupational Therapy Helps
               </h2>
               <p>
@@ -53,11 +70,11 @@ const AdhdAndOtPage = () => {
                 Occupational therapists are experts in understanding how sensory processing, motor skills, executive functions, and environmental factors all work together to either support or challenge a child's success. We look at the whole child—their strengths, interests, challenges, environment, and goals—and create personalized strategies that actually work in real life.
               </p>
             </div>
-            <div className="bg-dark-bg/50 backdrop-blur-sm p-8 rounded-xl border-2 border-primary/30">
+            <div className="bg-card p-8 rounded-xl border-2 border-primary/30">
               <h3 className="font-heading uppercase text-primary text-xl mb-4">
                 Why Choose OT for ADHD?
               </h3>
-              <ul className="space-y-3 text-white/80 font-body">
+              <ul className="space-y-3 text-foreground/80 font-body">
                 <li className="flex items-start">
                   <span className="text-primary mr-2">•</span>
                   <span>Develops practical, real-world strategies for daily challenges</span>
@@ -87,6 +104,12 @@ const AdhdAndOtPage = () => {
           </div>
         </ResourceSection>
 
+        {/* Inline CTA 1 */}
+        <ResourceInlineCta
+          variant="consultation"
+          message="Wondering if OT is right for your child? Book a free consultation to discuss your child's unique needs and how we can help."
+        />
+
         {/* Areas OT Addresses */}
         <ResourceSection bgColor="dark" title="Areas Occupational Therapy Addresses">
           <div className="grid md:grid-cols-2 gap-6 mb-8">
@@ -115,8 +138,8 @@ const AdhdAndOtPage = () => {
             </ResourceCard>
           </div>
 
-          <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed mt-8">
-            <h3 className="font-heading uppercase text-primary text-xl">
+          <div className="space-y-6 text-white font-body text-lg leading-relaxed mt-8">
+            <h3 className="font-heading uppercase text-white text-xl">
               Social Participation
             </h3>
             <p>
@@ -128,10 +151,10 @@ const AdhdAndOtPage = () => {
         {/* The WOW Approach */}
         <ResourceSection bgColor="black">
           <div className="bg-gradient-to-b from-dark-bg to-black-bg p-8 md:p-12 rounded-xl border-2 border-primary/30 shadow-glow">
-            <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6 text-center">
+            <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading mb-6 text-center">
               The WOW Approach
             </h2>
-            <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
+            <div className="space-y-6 text-white font-body text-lg leading-relaxed">
               <p>
                 At WOW Occupational Therapy, we don't believe in "fixing" children with ADHD—because they're not broken! Instead, we're passionate about empowering kids to understand their unique brains, recognize their incredible strengths, and develop personalized strategies that help them shine.
               </p>
@@ -148,11 +171,17 @@ const AdhdAndOtPage = () => {
           </div>
         </ResourceSection>
 
+        {/* Inline CTA 2 */}
+        <ResourceInlineCta
+          variant="program"
+          message="Ready for structured, long-term support? Our 6-week WOW Program has helped 200+ families see real transformation."
+        />
+
         {/* When to Seek Help */}
         <ResourceSection bgColor="dark">
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
-              <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading">
+            <div className="space-y-6 text-white font-body text-lg leading-relaxed">
+              <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading">
                 When to Consider Occupational Therapy
               </h2>
               <p>
@@ -186,8 +215,8 @@ const AdhdAndOtPage = () => {
               </ul>
             </div>
 
-            <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
-              <h3 className="font-heading uppercase text-primary text-xl">
+            <div className="space-y-6 text-white font-body text-lg leading-relaxed">
+              <h3 className="font-heading uppercase text-white text-xl">
                 What to Expect
               </h3>
               <p>
@@ -206,7 +235,39 @@ const AdhdAndOtPage = () => {
           </div>
         </ResourceSection>
 
-        <ResourceCTA />
+              {/* Related Resources */}
+              <RelatedResourcesUpsell
+                resources={[
+                  {
+                    title: 'Executive Functioning Skills',
+                    description: 'Learn strategies to help your child with planning, organization, and task management',
+                    link: '/resources/executive-functioning',
+                    icon: 'brain',
+                  },
+                  {
+                    title: 'Sensory & Motor Development',
+                    description: 'Understanding how sensory processing and motor skills impact daily activities',
+                    link: '/resources/sensory-motor',
+                    icon: 'target',
+                  },
+                  {
+                    title: 'Social & Emotional Growth',
+                    description: 'Building emotional regulation and social skills for better peer relationships',
+                    link: '/resources/social-emotional',
+                    icon: 'heart',
+                  },
+                ]}
+                className="mb-8"
+              />
+
+              {/* End CTA */}
+              <ResourceEndCta />
+            </div>
+
+            {/* Sticky Sidebar */}
+            <ResourceStickyCtaSidebar />
+          </div>
+        </div>
       </div>
     </PageTransition>
   );

@@ -41,7 +41,7 @@ So, if you're ready to set forth on a journey where success is the destination, 
   ];
 
   return (
-    <div className="min-h-screen bg-black-bg">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <section className="bg-gradient-to-b from-dark-bg to-black-bg py-16 md:py-20 border-b-4 border-primary">
         <div className="container mx-auto px-4 lg:px-8">
@@ -52,13 +52,13 @@ So, if you're ready to set forth on a journey where success is the destination, 
       </section>
 
       {/* Team Members */}
-      <section className="bg-black-bg py-16 md:py-24">
+      <section className="bg-background py-16 md:py-24">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {teamMembers.map((member) => (
               <div
                 key={member.id}
-                className="bg-dark-bg/50 backdrop-blur-sm p-8 rounded-xl border-2 border-primary/20 hover:border-primary/40 transition-all"
+                className="bg-card p-8 rounded-xl border-2 border-primary/20 hover:border-primary/40 transition-all"
               >
                 <div className="w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary shadow-glow transition-all duration-300 hover:scale-110 hover:shadow-[0_0_40px_rgba(80,200,120,0.6)] hover:border-primary-hover group cursor-pointer">
                   <ImageWithSkeleton
@@ -73,9 +73,9 @@ So, if you're ready to set forth on a journey where success is the destination, 
                 <h2 className="font-heading uppercase text-primary text-2xl text-center mb-2">
                   {member.name}
                 </h2>
-                <p className="font-body text-white/70 text-center mb-4">{member.title}</p>
+                <p className="font-body text-foreground/70 text-center mb-4">{member.title}</p>
 
-                <p className="font-body text-white leading-relaxed mb-4">
+                <p className="font-body text-foreground leading-relaxed mb-4">
                   {expandedBio === member.id ? member.fullBio : member.shortBio}
                 </p>
 

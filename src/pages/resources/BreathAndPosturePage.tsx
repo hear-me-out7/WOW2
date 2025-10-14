@@ -3,13 +3,17 @@ import { ResourceBreadcrumb } from '@/components/resources/ResourceBreadcrumb';
 import { ResourceHero } from '@/components/resources/ResourceHero';
 import { ResourceSection } from '@/components/resources/ResourceSection';
 import { ResourceCard } from '@/components/resources/ResourceCard';
-import { ResourceCTA } from '@/components/resources/ResourceCTA';
 import { PageTransition } from '@/components/PageTransition';
+import ResourceStickyCtaSidebar from '@/components/ResourceStickyCtaSidebar';
+import ResourceInlineCta from '@/components/ResourceInlineCta';
+import ResourceEndCta from '@/components/ResourceEndCta';
+import ResourceDownloadGate from '@/components/ResourceDownloadGate';
+import RelatedResourcesUpsell from '@/components/RelatedResourcesUpsell';
 
 const BreathAndPosturePage = () => {
   return (
     <PageTransition>
-      <div className="min-h-screen bg-black-bg">
+      <div className="min-h-screen bg-background">
         <ResourceBreadcrumb resourceTitle="Breath & Posture" />
 
         <ResourceHero
@@ -18,10 +22,23 @@ const BreathAndPosturePage = () => {
           description="Techniques for body awareness and self-regulation through breath and movement"
         />
 
+        {/* Main Content with Sidebar */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="grid lg:grid-cols-[1fr_300px] gap-8 items-start">
+            {/* Main Content */}
+            <div>
+              {/* Download Gate */}
+              <ResourceDownloadGate
+                resourceTitle="Breathing & Body Awareness Guide"
+                resourceDescription="Download our comprehensive guide to breathing techniques and body awareness activities for regulation and focus."
+                magnetId="breathing-exercises"
+                className="mb-8"
+              />
+
         {/* Introduction */}
         <ResourceSection bgColor="dark">
-          <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
-            <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6">
+          <div className="space-y-6 text-white font-body text-lg leading-relaxed">
+            <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading mb-6">
               The Body-Brain Connection
             </h2>
             <p>
@@ -49,10 +66,10 @@ const BreathAndPosturePage = () => {
                 <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary flex items-center justify-center text-black font-heading">
                   1
                 </div>
-                <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6">
+                <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading mb-6">
                   Posture and Learning
                 </h2>
-                <div className="space-y-4 text-white/90 font-body text-lg leading-relaxed">
+                <div className="space-y-4 text-white font-body text-lg leading-relaxed">
                   <p>
                     Have you ever noticed that when your child is slumped over their homework, head resting on their arm, they seem even more unfocused? There's a physical reason for this. Posture significantly affects cognitive function, attention, and learning.
                   </p>
@@ -66,7 +83,7 @@ const BreathAndPosturePage = () => {
                 <div className="grid md:grid-cols-2 gap-6 mt-6">
                   <div className="bg-black/30 p-6 rounded-lg">
                     <h4 className="text-primary font-semibold mb-3">Signs of Poor Postural Control:</h4>
-                    <ul className="space-y-2 text-white/80 text-sm">
+                    <ul className="space-y-2 text-foreground/80 text-sm">
                       <li>• Constant slouching or slumping</li>
                       <li>• Head resting on arm or desk</li>
                       <li>• Hooking feet around chair legs</li>
@@ -77,7 +94,7 @@ const BreathAndPosturePage = () => {
                   </div>
                   <div className="bg-black/30 p-6 rounded-lg">
                     <h4 className="text-primary font-semibold mb-3">Support Better Posture:</h4>
-                    <ul className="space-y-2 text-white/80 text-sm">
+                    <ul className="space-y-2 text-foreground/80 text-sm">
                       <li>• Ensure feet reach floor or footrest</li>
                       <li>• Use wedge cushions for seating</li>
                       <li>• Try stability balls or wobble cushions</li>
@@ -99,10 +116,10 @@ const BreathAndPosturePage = () => {
                 <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary flex items-center justify-center text-black font-heading">
                   2
                 </div>
-                <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6">
+                <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading mb-6">
                   Core Strength Matters
                 </h2>
-                <div className="space-y-4 text-white/90 font-body text-lg leading-relaxed">
+                <div className="space-y-4 text-white font-body text-lg leading-relaxed">
                   <p>
                     Core strength isn't about six-pack abs—it's about the muscles of the trunk that stabilize our body and allow our limbs to move efficiently. Strong core muscles are essential for everything from sitting at a desk to handwriting to sports participation.
                   </p>
@@ -114,17 +131,17 @@ const BreathAndPosturePage = () => {
                   </p>
                 </div>
                 <div className="mt-6 grid md:grid-cols-3 gap-4">
-                  <div className="bg-primary/10 p-4 rounded-lg border border-primary/30">
+                  <div className="bg-card p-4 rounded-lg border border-primary/30">
                     <h5 className="text-primary font-semibold mb-2 text-center">Climbing Activities</h5>
-                    <p className="text-white/80 text-sm text-center">Playground climbers, rock walls, tree climbing, ladder climbing</p>
+                    <p className="text-foreground/80 text-sm text-center">Playground climbers, rock walls, tree climbing, ladder climbing</p>
                   </div>
-                  <div className="bg-primary/10 p-4 rounded-lg border border-primary/30">
+                  <div className="bg-card p-4 rounded-lg border border-primary/30">
                     <h5 className="text-primary font-semibold mb-2 text-center">Animal Walks</h5>
-                    <p className="text-white/80 text-sm text-center">Bear walk, crab walk, inchworm, wheelbarrow, frog jumps</p>
+                    <p className="text-foreground/80 text-sm text-center">Bear walk, crab walk, inchworm, wheelbarrow, frog jumps</p>
                   </div>
-                  <div className="bg-primary/10 p-4 rounded-lg border border-primary/30">
+                  <div className="bg-card p-4 rounded-lg border border-primary/30">
                     <h5 className="text-primary font-semibold mb-2 text-center">Balance Challenges</h5>
-                    <p className="text-white/80 text-sm text-center">Balance beams, yoga poses, one-leg activities, wobble boards</p>
+                    <p className="text-foreground/80 text-sm text-center">Balance beams, yoga poses, one-leg activities, wobble boards</p>
                   </div>
                 </div>
               </div>
@@ -139,10 +156,10 @@ const BreathAndPosturePage = () => {
                 <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary flex items-center justify-center text-black font-heading">
                   3
                 </div>
-                <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6">
+                <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading mb-6">
                   The Power of Breath
                 </h2>
-                <div className="space-y-4 text-white/90 font-body text-lg leading-relaxed">
+                <div className="space-y-4 text-white font-body text-lg leading-relaxed">
                   <p>
                     Breathing is the only function of the autonomic nervous system that we can consciously control. This makes it a powerful tool for regulation. When we're anxious or stressed, our breathing becomes rapid and shallow. When we're calm and focused, our breathing is slow and deep.
                   </p>
@@ -157,6 +174,12 @@ const BreathAndPosturePage = () => {
             </div>
           </div>
         </ResourceSection>
+
+        {/* Inline CTA 1 */}
+        <ResourceInlineCta
+          variant="consultation"
+          message="Want personalized strategies for supporting your child's regulation and focus? Book a free consultation to discuss what works best for your child."
+        />
 
         {/* Breathing Techniques */}
         <ResourceSection bgColor="dark" title="Breathing Techniques for Children">
@@ -204,17 +227,23 @@ const BreathAndPosturePage = () => {
             </ResourceCard>
           </div>
 
-          <div className="bg-primary/10 p-6 md:p-8 rounded-lg border-l-4 border-primary mt-8">
+          <div className="bg-card p-6 md:p-8 rounded-lg border-l-4 border-primary mt-8">
             <p className="text-primary font-semibold mb-2">Practice Tip:</p>
-            <p className="text-white/90">
+            <p className="text-foreground">
               Breathing techniques work best when practiced regularly during calm times, not just during meltdowns. Make it part of your daily routine—morning breathing to start the day, breathing before bed, or breathing breaks between activities. The more children practice when calm, the more effective these techniques will be when they're upset.
             </p>
           </div>
         </ResourceSection>
 
+        {/* Inline CTA 2 */}
+        <ResourceInlineCta
+          variant="program"
+          message="The WOW Program incorporates breathing exercises and movement activities into comprehensive support for children with ADHD."
+        />
+
         {/* Body Awareness Activities */}
         <ResourceSection bgColor="black" title="Building Body Awareness">
-          <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed mb-8">
+          <div className="space-y-6 text-white font-body text-lg leading-relaxed mb-8">
             <p>
               Body awareness—knowing where your body is in space and what it's doing—is essential for both motor skills and self-regulation. Children with strong body awareness can better recognize when they're tense, fidgety, or uncomfortable, allowing them to use strategies before emotions escalate.
             </p>
@@ -224,49 +253,49 @@ const BreathAndPosturePage = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-dark-bg/50 p-6 rounded-lg border border-primary/20">
+            <div className="bg-card p-6 rounded-lg border-2 border-primary/20">
               <h4 className="font-heading text-primary text-lg mb-3">Yoga for Kids</h4>
-              <p className="text-white/80 text-sm mb-3">
+              <p className="text-foreground/80 text-sm mb-3">
                 Child-friendly yoga builds body awareness, strength, flexibility, and mindfulness. Make it playful with animal poses and storytelling. Many free kids' yoga videos are available online.
               </p>
               <p className="text-primary text-xs">Ages: 4+</p>
             </div>
 
-            <div className="bg-dark-bg/50 p-6 rounded-lg border border-primary/20">
+            <div className="bg-card p-6 rounded-lg border-2 border-primary/20">
               <h4 className="font-heading text-primary text-lg mb-3">Progressive Muscle Relaxation</h4>
-              <p className="text-white/80 text-sm mb-3">
+              <p className="text-foreground/80 text-sm mb-3">
                 Tense and relax different muscle groups. "Squeeze your hands into tight fists... now let them go soft like cooked spaghetti." Work through the whole body. This teaches the difference between tense and relaxed.
               </p>
               <p className="text-primary text-xs">Ages: 6+</p>
             </div>
 
-            <div className="bg-dark-bg/50 p-6 rounded-lg border border-primary/20">
+            <div className="bg-card p-6 rounded-lg border-2 border-primary/20">
               <h4 className="font-heading text-primary text-lg mb-3">Body Scan Meditation</h4>
-              <p className="text-white/80 text-sm mb-3">
+              <p className="text-foreground/80 text-sm mb-3">
                 Guide your child to notice each part of their body: "Notice your toes. Are they warm or cool? Relaxed or tense?" Move from toes to head. This builds interoceptive awareness.
               </p>
               <p className="text-primary text-xs">Ages: 7+</p>
             </div>
 
-            <div className="bg-dark-bg/50 p-6 rounded-lg border border-primary/20">
+            <div className="bg-card p-6 rounded-lg border-2 border-primary/20">
               <h4 className="font-heading text-primary text-lg mb-3">Mindful Movement</h4>
-              <p className="text-white/80 text-sm mb-3">
+              <p className="text-foreground/80 text-sm mb-3">
                 Slow, intentional movements with attention to how they feel. Walk very slowly noticing each foot placement. Stretch slowly noticing how muscles feel. Move like you're underwater.
               </p>
               <p className="text-primary text-xs">Ages: 5+</p>
             </div>
 
-            <div className="bg-dark-bg/50 p-6 rounded-lg border border-primary/20">
+            <div className="bg-card p-6 rounded-lg border-2 border-primary/20">
               <h4 className="font-heading text-primary text-lg mb-3">Mirror Games</h4>
-              <p className="text-white/80 text-sm mb-3">
+              <p className="text-foreground/80 text-sm mb-3">
                 Partner with your child and take turns being the leader. The other person mirrors their movements exactly. This builds body awareness and is also great for connection and fun.
               </p>
               <p className="text-primary text-xs">Ages: 4+</p>
             </div>
 
-            <div className="bg-dark-bg/50 p-6 rounded-lg border border-primary/20">
+            <div className="bg-card p-6 rounded-lg border-2 border-primary/20">
               <h4 className="font-heading text-primary text-lg mb-3">Dance and Freeze</h4>
-              <p className="text-white/80 text-sm mb-3">
+              <p className="text-foreground/80 text-sm mb-3">
                 Play music and dance. When music stops, freeze in a pose and hold it. Notice how your body feels in that position. This builds body control and awareness while being fun and energizing.
               </p>
               <p className="text-primary text-xs">Ages: 3+</p>
@@ -277,10 +306,10 @@ const BreathAndPosturePage = () => {
         {/* Movement Breaks */}
         <ResourceSection bgColor="dark">
           <div className="bg-gradient-to-b from-black-bg to-dark-bg p-8 md:p-12 rounded-xl border-2 border-primary/30 shadow-glow">
-            <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6 text-center">
+            <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading mb-6 text-center">
               Creating a Movement-Friendly Environment
             </h2>
-            <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
+            <div className="space-y-6 text-white font-body text-lg leading-relaxed">
               <p>
                 Children with ADHD need to move. Fighting this need creates frustration and exhaustion for everyone. Instead, build movement into the day intentionally. Movement breaks aren't rewards for sitting still—they're necessary brain breaks that allow children to maintain attention and regulation.
               </p>
@@ -297,7 +326,39 @@ const BreathAndPosturePage = () => {
           </div>
         </ResourceSection>
 
-        <ResourceCTA />
+              {/* Related Resources */}
+              <RelatedResourcesUpsell
+                resources={[
+                  {
+                    title: 'Sensory & Motor Development',
+                    description: 'Understanding sensory processing and motor skills for better regulation',
+                    link: '/resources/sensory-motor',
+                    icon: 'target',
+                  },
+                  {
+                    title: 'Social & Emotional Growth',
+                    description: 'Building emotional regulation and self-awareness skills',
+                    link: '/resources/social-emotional',
+                    icon: 'heart',
+                  },
+                  {
+                    title: 'Tips & Tricks for Daily Success',
+                    description: 'Quick strategies to support focus and regulation throughout the day',
+                    link: '/resources/tips-and-tricks',
+                    icon: 'brain',
+                  },
+                ]}
+                className="mb-8"
+              />
+
+              {/* End CTA */}
+              <ResourceEndCta />
+            </div>
+
+            {/* Sticky Sidebar */}
+            <ResourceStickyCtaSidebar />
+          </div>
+        </div>
       </div>
     </PageTransition>
   );

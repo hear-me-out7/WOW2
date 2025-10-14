@@ -3,14 +3,18 @@ import { ResourceBreadcrumb } from '@/components/resources/ResourceBreadcrumb';
 import { ResourceHero } from '@/components/resources/ResourceHero';
 import { ResourceSection } from '@/components/resources/ResourceSection';
 import { ResourceCard } from '@/components/resources/ResourceCard';
-import { ResourceCTA } from '@/components/resources/ResourceCTA';
 import { PageTransition } from '@/components/PageTransition';
+import ResourceStickyCtaSidebar from '@/components/ResourceStickyCtaSidebar';
+import ResourceInlineCta from '@/components/ResourceInlineCta';
+import ResourceEndCta from '@/components/ResourceEndCta';
+import ResourceDownloadGate from '@/components/ResourceDownloadGate';
+import RelatedResourcesUpsell from '@/components/RelatedResourcesUpsell';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const TipsAndTricksPage = () => {
   return (
     <PageTransition>
-      <div className="min-h-screen bg-black-bg">
+      <div className="min-h-screen bg-background">
         <ResourceBreadcrumb resourceTitle="Tips & Tricks" />
 
         <ResourceHero
@@ -19,10 +23,23 @@ const TipsAndTricksPage = () => {
           description="Practical daily strategies for parents and caregivers to support children with ADHD"
         />
 
+        {/* Main Content with Sidebar */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="grid lg:grid-cols-[1fr_300px] gap-8 items-start">
+            {/* Main Content */}
+            <div>
+              {/* Download Gate */}
+              <ResourceDownloadGate
+                resourceTitle="Daily Tips & Tricks Handbook"
+                resourceDescription="Download our comprehensive guide with practical strategies for managing daily routines and challenges."
+                magnetId="tips-and-tricks-guide"
+                className="mb-8"
+              />
+
         {/* Introduction */}
         <ResourceSection bgColor="dark">
-          <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
-            <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6">
+          <div className="space-y-6 text-white font-body text-lg leading-relaxed">
+            <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading mb-6">
               Practical Strategies for Everyday Success
             </h2>
             <p>
@@ -40,31 +57,37 @@ const TipsAndTricksPage = () => {
         {/* Quick Reference Cards */}
         <ResourceSection bgColor="black" title="Quick Reference Guide">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            <div className="bg-primary/10 p-4 rounded-lg border border-primary/30 text-center">
+            <div className="bg-card p-4 rounded-lg border border-primary/30 text-center">
               <Sun className="text-primary mx-auto mb-2" size={32} />
               <p className="font-heading text-primary text-sm uppercase">Morning Routines</p>
             </div>
-            <div className="bg-primary/10 p-4 rounded-lg border border-primary/30 text-center">
+            <div className="bg-card p-4 rounded-lg border border-primary/30 text-center">
               <BookOpen className="text-primary mx-auto mb-2" size={32} />
               <p className="font-heading text-primary text-sm uppercase">School & Homework</p>
             </div>
-            <div className="bg-primary/10 p-4 rounded-lg border border-primary/30 text-center">
+            <div className="bg-card p-4 rounded-lg border border-primary/30 text-center">
               <Home className="text-primary mx-auto mb-2" size={32} />
               <p className="font-heading text-primary text-sm uppercase">Home Organization</p>
             </div>
-            <div className="bg-primary/10 p-4 rounded-lg border border-primary/30 text-center">
+            <div className="bg-card p-4 rounded-lg border border-primary/30 text-center">
               <Moon className="text-primary mx-auto mb-2" size={32} />
               <p className="font-heading text-primary text-sm uppercase">Bedtime Routines</p>
             </div>
           </div>
         </ResourceSection>
 
+        {/* Inline CTA 1 */}
+        <ResourceInlineCta
+          variant="consultation"
+          message="Feeling overwhelmed by daily challenges? Let's discuss personalized strategies that fit your family's unique needs."
+        />
+
         {/* Detailed Tips & Tricks */}
         <ResourceSection bgColor="dark" title="Detailed Strategies">
           <Accordion type="single" collapsible className="space-y-4">
             <AccordionItem
               value="morning"
-              className="bg-black-bg/50 backdrop-blur-sm border-2 border-primary/20 rounded-lg px-6"
+              className="bg-card border-2 border-primary/20 rounded-lg px-6"
             >
               <AccordionTrigger className="font-heading text-primary text-xl text-left hover:text-primary-hover">
                 <div className="flex items-center gap-3">
@@ -113,7 +136,7 @@ const TipsAndTricksPage = () => {
 
             <AccordionItem
               value="homework"
-              className="bg-black-bg/50 backdrop-blur-sm border-2 border-primary/20 rounded-lg px-6"
+              className="bg-card border-2 border-primary/20 rounded-lg px-6"
             >
               <AccordionTrigger className="font-heading text-primary text-xl text-left hover:text-primary-hover">
                 <div className="flex items-center gap-3">
@@ -162,7 +185,7 @@ const TipsAndTricksPage = () => {
 
             <AccordionItem
               value="organization"
-              className="bg-black-bg/50 backdrop-blur-sm border-2 border-primary/20 rounded-lg px-6"
+              className="bg-card border-2 border-primary/20 rounded-lg px-6"
             >
               <AccordionTrigger className="font-heading text-primary text-xl text-left hover:text-primary-hover">
                 <div className="flex items-center gap-3">
@@ -211,7 +234,7 @@ const TipsAndTricksPage = () => {
 
             <AccordionItem
               value="emotions"
-              className="bg-black-bg/50 backdrop-blur-sm border-2 border-primary/20 rounded-lg px-6"
+              className="bg-card border-2 border-primary/20 rounded-lg px-6"
             >
               <AccordionTrigger className="font-heading text-primary text-xl text-left hover:text-primary-hover">
                 <div className="flex items-center gap-3">
@@ -260,7 +283,7 @@ const TipsAndTricksPage = () => {
 
             <AccordionItem
               value="screen-time"
-              className="bg-black-bg/50 backdrop-blur-sm border-2 border-primary/20 rounded-lg px-6"
+              className="bg-card border-2 border-primary/20 rounded-lg px-6"
             >
               <AccordionTrigger className="font-heading text-primary text-xl text-left hover:text-primary-hover">
                 <div className="flex items-center gap-3">
@@ -303,7 +326,7 @@ const TipsAndTricksPage = () => {
 
             <AccordionItem
               value="bedtime"
-              className="bg-black-bg/50 backdrop-blur-sm border-2 border-primary/20 rounded-lg px-6"
+              className="bg-card border-2 border-primary/20 rounded-lg px-6"
             >
               <AccordionTrigger className="font-heading text-primary text-xl text-left hover:text-primary-hover">
                 <div className="flex items-center gap-3">
@@ -352,7 +375,7 @@ const TipsAndTricksPage = () => {
 
             <AccordionItem
               value="strengths"
-              className="bg-black-bg/50 backdrop-blur-sm border-2 border-primary/20 rounded-lg px-6"
+              className="bg-card border-2 border-primary/20 rounded-lg px-6"
             >
               <AccordionTrigger className="font-heading text-primary text-xl text-left hover:text-primary-hover">
                 <div className="flex items-center gap-3">
@@ -401,13 +424,19 @@ const TipsAndTricksPage = () => {
           </Accordion>
         </ResourceSection>
 
+        {/* Inline CTA 2 */}
+        <ResourceInlineCta
+          variant="program"
+          message="Ready for comprehensive support? The WOW Program provides structure, strategies, and community to help your family thrive."
+        />
+
         {/* Remember */}
         <ResourceSection bgColor="black">
           <div className="bg-gradient-to-b from-dark-bg to-black-bg p-8 md:p-12 rounded-xl border-2 border-primary/30 shadow-glow">
-            <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6 text-center">
+            <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading mb-6 text-center">
               Remember
             </h2>
-            <div className="space-y-4 text-white/90 font-body text-lg leading-relaxed text-center max-w-3xl mx-auto">
+            <div className="space-y-4 text-white font-body text-lg leading-relaxed text-center max-w-3xl mx-auto">
               <p>
                 You don't have to implement everything perfectly. Start small, be patient with yourself and your child, and celebrate the small wins.
               </p>
@@ -421,7 +450,39 @@ const TipsAndTricksPage = () => {
           </div>
         </ResourceSection>
 
-        <ResourceCTA />
+              {/* Related Resources */}
+              <RelatedResourcesUpsell
+                resources={[
+                  {
+                    title: 'ADHD & Occupational Therapy',
+                    description: 'Understanding the foundations of OT support for ADHD',
+                    link: '/resources/adhd-and-ot',
+                    icon: 'brain',
+                  },
+                  {
+                    title: 'Executive Functioning Skills',
+                    description: 'Deep dive into planning, organization, and time management strategies',
+                    link: '/resources/executive-functioning',
+                    icon: 'brain',
+                  },
+                  {
+                    title: 'Social & Emotional Growth',
+                    description: 'Supporting emotional regulation and building resilience',
+                    link: '/resources/social-emotional',
+                    icon: 'heart',
+                  },
+                ]}
+                className="mb-8"
+              />
+
+              {/* End CTA */}
+              <ResourceEndCta />
+            </div>
+
+            {/* Sticky Sidebar */}
+            <ResourceStickyCtaSidebar />
+          </div>
+        </div>
       </div>
     </PageTransition>
   );

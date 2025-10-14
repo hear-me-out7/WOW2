@@ -25,7 +25,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black-bg">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-dark-bg via-black-bg to-dark-bg pt-28 pb-20 md:pt-36 md:pb-32 min-h-[600px] md:min-h-[700px] overflow-hidden">
         <div className="absolute inset-0 opacity-60">
@@ -57,13 +57,13 @@ const Index = () => {
       </section>
 
       {/* About WOW OT */}
-      <section className="bg-black-bg py-16 md:py-24">
+      <section className="bg-background py-16 md:py-24">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-heading uppercase text-primary text-3xl md:text-5xl tracking-heading-lg mb-8">
               WOW OCCUPATIONAL THERAPY
             </h2>
-            <div className="space-y-6 text-white/90 font-body text-lg md:text-xl leading-relaxed">
+            <div className="space-y-6 text-foreground font-body text-lg md:text-xl leading-relaxed">
               <p>
                 We're Lindsay and Erin, two passionate occupational therapists dedicated to helping children with ADHD discover their unique strengths and develop the skills they need to thrive.
               </p>
@@ -87,41 +87,41 @@ const Index = () => {
       <section className="bg-dark-bg py-16 md:py-24 border-y-4 border-primary/30">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading uppercase text-primary text-3xl md:text-4xl tracking-heading-lg text-center mb-12">
+            <h2 className="font-heading uppercase text-white text-3xl md:text-4xl tracking-heading-lg text-center mb-12">
               UNDERSTANDING ADHD
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-              <Card className="bg-black-bg/50 border-2 border-primary/20 hover:border-primary/40 transition-all h-full">
+              <Card className="bg-card border-2 border-primary/20 hover:border-primary/40 transition-all h-full">
                 <CardContent className="p-6 text-center">
                   <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
                     <Brain className="text-primary" size={32} />
                   </div>
                   <h3 className="font-heading text-primary text-xl mb-3">Executive Function</h3>
-                  <p className="text-white/80 font-body">
+                  <p className="text-foreground font-body">
                     Planning, organization, and time management skills
                   </p>
                 </CardContent>
               </Card>
               
-              <Card className="bg-black-bg/50 border-2 border-primary/20 hover:border-primary/40 transition-all h-full">
+              <Card className="bg-card border-2 border-primary/20 hover:border-primary/40 transition-all h-full">
                 <CardContent className="p-6 text-center">
                   <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
                     <Users className="text-primary" size={32} />
                   </div>
                   <h3 className="font-heading text-primary text-xl mb-3">Social Skills</h3>
-                  <p className="text-white/80 font-body">
+                  <p className="text-foreground font-body">
                     Building relationships and emotional regulation
                   </p>
                 </CardContent>
               </Card>
               
-              <Card className="bg-black-bg/50 border-2 border-primary/20 hover:border-primary/40 transition-all h-full">
+              <Card className="bg-card border-2 border-primary/20 hover:border-primary/40 transition-all h-full">
                 <CardContent className="p-6 text-center">
                   <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
                     <Heart className="text-primary" size={32} />
                   </div>
                   <h3 className="font-heading text-primary text-xl mb-3">Self-Confidence</h3>
-                  <p className="text-white/80 font-body">
+                  <p className="text-foreground font-body">
                     Empowering kids to believe in themselves
                   </p>
                 </CardContent>
@@ -132,18 +132,18 @@ const Index = () => {
       </section>
 
       {/* Services */}
-      <section className="bg-black-bg py-16 md:py-24">
+      <section className="bg-background py-16 md:py-24">
         <div className="container mx-auto px-4 lg:px-8">
           <h2 className="font-heading uppercase text-primary text-3xl md:text-4xl tracking-heading-lg text-center mb-12">
             OUR SERVICES
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
-            <Card className="bg-dark-bg/50 border-2 border-primary/20 hover:border-primary/40 transition-all hover:scale-105 h-full">
+            <Card className="bg-card border-2 border-primary/20 hover:border-primary/40 transition-all hover:scale-105 h-full">
               <CardContent className="p-8 flex flex-col h-full">
                 <h3 className="font-heading uppercase text-primary text-2xl mb-4">
                   The WOW Program
                 </h3>
-                <p className="text-white font-body mb-4 leading-relaxed flex-grow">
+                <p className="text-foreground font-body mb-4 leading-relaxed flex-grow">
                   A 6-week interactive program designed for children with ADHD. Build confidence, develop strategies, and learn with peers.
                 </p>
                 <p className="text-primary font-heading text-3xl mb-4">$1500</p>
@@ -153,12 +153,12 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-dark-bg/50 border-2 border-primary/20 hover:border-primary/40 transition-all hover:scale-105 h-full">
+            <Card className="bg-card border-2 border-primary/20 hover:border-primary/40 transition-all hover:scale-105 h-full">
               <CardContent className="p-8 flex flex-col h-full">
                 <h3 className="font-heading uppercase text-primary text-2xl mb-4">
                   Virtual Consultation
                 </h3>
-                <p className="text-white font-body mb-4 leading-relaxed flex-grow">
+                <p className="text-foreground font-body mb-4 leading-relaxed flex-grow">
                   0.75hr consultation with 2 OTs, plus a comprehensive summary document with strategies and resources.
                 </p>
                 <p className="text-primary font-heading text-3xl mb-4">$200</p>
@@ -174,7 +174,7 @@ const Index = () => {
       {/* Testimonials */}
       <section className="bg-dark-bg py-16 md:py-24 border-t-4 border-primary/30">
         <div className="container mx-auto px-4 lg:px-8">
-          <h2 className="font-heading uppercase text-primary text-3xl md:text-4xl tracking-heading-lg text-center mb-12">
+          <h2 className="font-heading uppercase text-white text-3xl md:text-4xl tracking-heading-lg text-center mb-12">
             WHAT PARENTS SAY
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
@@ -183,13 +183,13 @@ const Index = () => {
                 <CardContent className="p-6 flex flex-col h-full">
                   <div className="flex gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="text-primary fill-primary" size={20} />
+                      <Star key={i} className="text-white fill-white" size={20} />
                     ))}
                   </div>
                   <p className="text-white font-body italic mb-4 leading-relaxed flex-grow">
                     "{testimonial.text}"
                   </p>
-                  <p className="text-primary font-heading">
+                  <p className="text-white font-heading">
                     — {testimonial.name}
                   </p>
                 </CardContent>
@@ -200,12 +200,12 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-black-bg py-16 md:py-24">
+      <section className="bg-background py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-heading uppercase text-primary text-3xl md:text-4xl mb-6">
             READY TO GET STARTED?
           </h2>
-          <p className="text-white font-body text-xl mb-8 max-w-2xl mx-auto">
+          <p className="text-foreground font-body text-xl mb-8 max-w-2xl mx-auto">
             Contact us today to learn more about how WOW occupational therapy can transform your child's life
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary-hover text-lg px-10 py-6 uppercase font-heading shadow-glow-lg">

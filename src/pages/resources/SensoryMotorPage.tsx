@@ -3,13 +3,17 @@ import { ResourceBreadcrumb } from '@/components/resources/ResourceBreadcrumb';
 import { ResourceHero } from '@/components/resources/ResourceHero';
 import { ResourceSection } from '@/components/resources/ResourceSection';
 import { ResourceCard } from '@/components/resources/ResourceCard';
-import { ResourceCTA } from '@/components/resources/ResourceCTA';
 import { PageTransition } from '@/components/PageTransition';
+import ResourceStickyCtaSidebar from '@/components/ResourceStickyCtaSidebar';
+import ResourceInlineCta from '@/components/ResourceInlineCta';
+import ResourceEndCta from '@/components/ResourceEndCta';
+import ResourceDownloadGate from '@/components/ResourceDownloadGate';
+import RelatedResourcesUpsell from '@/components/RelatedResourcesUpsell';
 
 const SensoryMotorPage = () => {
   return (
     <PageTransition>
-      <div className="min-h-screen bg-black-bg">
+      <div className="min-h-screen bg-background">
         <ResourceBreadcrumb resourceTitle="Sensory Motor" />
 
         <ResourceHero
@@ -18,10 +22,23 @@ const SensoryMotorPage = () => {
           description="Activities to support sensory processing and motor development for children with ADHD"
         />
 
+        {/* Main Content with Sidebar */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="grid lg:grid-cols-[1fr_300px] gap-8 items-start">
+            {/* Main Content */}
+            <div>
+              {/* Download Gate */}
+              <ResourceDownloadGate
+                resourceTitle="Sensory & Motor Activities Guide"
+                resourceDescription="Download our comprehensive sensory checklist and activity guide to support your child's sensory processing needs."
+                magnetId="sensory-checklist"
+                className="mb-8"
+              />
+
         {/* Introduction */}
         <ResourceSection bgColor="dark">
-          <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
-            <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6">
+          <div className="space-y-6 text-white font-body text-lg leading-relaxed">
+            <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading mb-6">
               Understanding Sensory Processing
             </h2>
             <p>
@@ -121,13 +138,19 @@ const SensoryMotorPage = () => {
           </div>
         </ResourceSection>
 
+        {/* Inline CTA 1 */}
+        <ResourceInlineCta
+          variant="consultation"
+          message="Need help understanding your child's sensory profile? Book a consultation to create a personalized sensory plan."
+        />
+
         {/* Signs of Sensory Challenges */}
         <ResourceSection bgColor="dark">
-          <div className="bg-dark-bg/50 backdrop-blur-sm p-8 md:p-12 rounded-xl border-2 border-primary/30">
+          <div className="bg-card p-8 md:p-12 rounded-xl border-2 border-primary/30">
             <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6">
               Signs of Sensory Processing Challenges
             </h2>
-            <div className="grid md:grid-cols-2 gap-6 text-white/90 font-body leading-relaxed">
+            <div className="grid md:grid-cols-2 gap-6 text-foreground font-body leading-relaxed">
               <div>
                 <h3 className="text-primary font-heading text-xl mb-3">Sensory Seeking Behaviors</h3>
                 <ul className="space-y-2">
@@ -192,17 +215,17 @@ const SensoryMotorPage = () => {
 
         {/* Calming vs Alerting */}
         <ResourceSection bgColor="black" title="Sensory Strategies: Calming vs. Alerting">
-          <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed mb-8">
+          <div className="space-y-6 text-white font-body text-lg leading-relaxed mb-8">
             <p>
               Different sensory input affects our nervous system in different ways. Some sensory experiences are calming and organizing, while others are alerting and energizing. Understanding this helps you provide the right sensory input at the right time.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-primary/10 p-6 md:p-8 rounded-xl border-2 border-primary/30">
+            <div className="bg-card p-6 md:p-8 rounded-xl border-2 border-primary/30">
               <h3 className="font-heading text-primary text-2xl mb-4">Calming Sensory Input</h3>
-              <p className="text-white/90 mb-4">Use these when your child needs to calm down, focus, or prepare for quiet activities:</p>
-              <ul className="space-y-2 text-white/80">
+              <p className="text-foreground mb-4">Use these when your child needs to calm down, focus, or prepare for quiet activities:</p>
+              <ul className="space-y-2 text-foreground/80">
                 <li className="flex items-start">
                   <span className="text-primary mr-2">•</span>
                   <span>Deep pressure (hugs, weighted blanket, compression clothing)</span>
@@ -238,10 +261,10 @@ const SensoryMotorPage = () => {
               </ul>
             </div>
 
-            <div className="bg-primary/10 p-6 md:p-8 rounded-xl border-2 border-primary/30">
+            <div className="bg-card p-6 md:p-8 rounded-xl border-2 border-primary/30">
               <h3 className="font-heading text-primary text-2xl mb-4">Alerting Sensory Input</h3>
-              <p className="text-white/90 mb-4">Use these when your child needs to wake up, increase attention, or get energized:</p>
-              <ul className="space-y-2 text-white/80">
+              <p className="text-foreground mb-4">Use these when your child needs to wake up, increase attention, or get energized:</p>
+              <ul className="space-y-2 text-foreground/80">
                 <li className="flex items-start">
                   <span className="text-primary mr-2">•</span>
                   <span>Fast, unpredictable movement (jumping, spinning)</span>
@@ -279,9 +302,15 @@ const SensoryMotorPage = () => {
           </div>
         </ResourceSection>
 
+        {/* Inline CTA 2 */}
+        <ResourceInlineCta
+          variant="program"
+          message="Ready for comprehensive sensory support? The WOW Program includes personalized sensory strategies and motor skill development."
+        />
+
         {/* Motor Skills */}
         <ResourceSection bgColor="dark" title="Motor Skills Development">
-          <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed mb-8">
+          <div className="space-y-6 text-white font-body text-lg leading-relaxed mb-8">
             <p>
               Motor skills—how we move our bodies and use our hands—are closely connected to sensory processing. Children with ADHD may have delays or differences in motor skill development that affect their ability to participate in physical activities, handwriting, self-care tasks, and play.
             </p>
@@ -323,9 +352,9 @@ const SensoryMotorPage = () => {
         {/* Activities for Home */}
         <ResourceSection bgColor="black" title="Sensory Activities for Home">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-dark-bg/50 p-6 rounded-lg border border-primary/20">
+            <div className="bg-card p-6 rounded-lg border-2 border-primary/20">
               <h4 className="font-heading text-primary text-lg mb-3">Heavy Work Activities</h4>
-              <ul className="text-white/80 text-sm space-y-1">
+              <ul className="text-foreground/80 text-sm space-y-1">
                 <li>• Carry laundry basket or groceries</li>
                 <li>• Push/pull heavy furniture with you</li>
                 <li>• Animal walks (bear, crab, wheelbarrow)</li>
@@ -334,9 +363,9 @@ const SensoryMotorPage = () => {
               </ul>
             </div>
 
-            <div className="bg-dark-bg/50 p-6 rounded-lg border border-primary/20">
+            <div className="bg-card p-6 rounded-lg border-2 border-primary/20">
               <h4 className="font-heading text-primary text-lg mb-3">Calming Activities</h4>
-              <ul className="text-white/80 text-sm space-y-1">
+              <ul className="text-foreground/80 text-sm space-y-1">
                 <li>• Weighted blanket time</li>
                 <li>• Slow rocking or swinging</li>
                 <li>• Deep pressure massage</li>
@@ -345,9 +374,9 @@ const SensoryMotorPage = () => {
               </ul>
             </div>
 
-            <div className="bg-dark-bg/50 p-6 rounded-lg border border-primary/20">
+            <div className="bg-card p-6 rounded-lg border-2 border-primary/20">
               <h4 className="font-heading text-primary text-lg mb-3">Alerting Activities</h4>
-              <ul className="text-white/80 text-sm space-y-1">
+              <ul className="text-foreground/80 text-sm space-y-1">
                 <li>• Jumping on trampoline</li>
                 <li>• Fast dancing to music</li>
                 <li>• Cold water splash on face</li>
@@ -356,9 +385,9 @@ const SensoryMotorPage = () => {
               </ul>
             </div>
 
-            <div className="bg-dark-bg/50 p-6 rounded-lg border border-primary/20">
+            <div className="bg-card p-6 rounded-lg border-2 border-primary/20">
               <h4 className="font-heading text-primary text-lg mb-3">Oral Motor Activities</h4>
-              <ul className="text-white/80 text-sm space-y-1">
+              <ul className="text-foreground/80 text-sm space-y-1">
                 <li>• Blow bubbles or pinwheels</li>
                 <li>• Drink thick smoothie through straw</li>
                 <li>• Chew gum</li>
@@ -367,9 +396,9 @@ const SensoryMotorPage = () => {
               </ul>
             </div>
 
-            <div className="bg-dark-bg/50 p-6 rounded-lg border border-primary/20">
+            <div className="bg-card p-6 rounded-lg border-2 border-primary/20">
               <h4 className="font-heading text-primary text-lg mb-3">Proprioceptive Input</h4>
-              <ul className="text-white/80 text-sm space-y-1">
+              <ul className="text-foreground/80 text-sm space-y-1">
                 <li>• Sandwich squeeze (couch cushions)</li>
                 <li>• Pillow crashes</li>
                 <li>• Tug-of-war games</li>
@@ -378,9 +407,9 @@ const SensoryMotorPage = () => {
               </ul>
             </div>
 
-            <div className="bg-dark-bg/50 p-6 rounded-lg border border-primary/20">
+            <div className="bg-card p-6 rounded-lg border-2 border-primary/20">
               <h4 className="font-heading text-primary text-lg mb-3">Vestibular Input</h4>
-              <ul className="text-white/80 text-sm space-y-1">
+              <ul className="text-foreground/80 text-sm space-y-1">
                 <li>• Swinging (linear, predictable)</li>
                 <li>• Rocking chair or rocking horse</li>
                 <li>• Spinning in office chair (monitor for dizziness)</li>
@@ -394,10 +423,10 @@ const SensoryMotorPage = () => {
         {/* Working with OT */}
         <ResourceSection bgColor="dark">
           <div className="bg-gradient-to-b from-black-bg to-dark-bg p-8 md:p-12 rounded-xl border-2 border-primary/30 shadow-glow">
-            <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6 text-center">
+            <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading mb-6 text-center">
               How Occupational Therapy Helps
             </h2>
-            <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
+            <div className="space-y-6 text-white font-body text-lg leading-relaxed">
               <p>
                 Occupational therapists are specially trained in sensory processing and motor development. We can assess your child's unique sensory profile, identify which sensory systems are seeking or avoiding, and create a personalized "sensory diet"—a plan of sensory activities throughout the day that helps your child stay regulated and focused.
               </p>
@@ -414,7 +443,39 @@ const SensoryMotorPage = () => {
           </div>
         </ResourceSection>
 
-        <ResourceCTA />
+              {/* Related Resources */}
+              <RelatedResourcesUpsell
+                resources={[
+                  {
+                    title: 'ADHD & Occupational Therapy',
+                    description: 'How OT helps children with ADHD develop regulation and attention skills',
+                    link: '/resources/adhd-and-ot',
+                    icon: 'brain',
+                  },
+                  {
+                    title: 'Breath & Posture',
+                    description: 'Using breath work and body positioning to support regulation and focus',
+                    link: '/resources/breath-and-posture',
+                    icon: 'heart',
+                  },
+                  {
+                    title: 'Social & Emotional Growth',
+                    description: 'Building emotional awareness and self-regulation skills',
+                    link: '/resources/social-emotional',
+                    icon: 'heart',
+                  },
+                ]}
+                className="mb-8"
+              />
+
+              {/* End CTA */}
+              <ResourceEndCta />
+            </div>
+
+            {/* Sticky Sidebar */}
+            <ResourceStickyCtaSidebar />
+          </div>
+        </div>
       </div>
     </PageTransition>
   );

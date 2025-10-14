@@ -1,12 +1,60 @@
+import { useState, useEffect } from 'react';
 import { MapLocation } from '@/components/MapLocation';
 import { Button } from '@/components/ui/button';
 import { ImageWithSkeleton } from '@/components/ui/image-with-skeleton';
-import { Link } from 'react-router-dom';
+import { ProgramEnrollmentForm } from '@/components/ProgramEnrollmentForm';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { api } from '@/services/api';
+import type { Program } from '@/services/api';
 import programActivity from '@/assets/program-activity.jpg';
 
 const ProgramPage = () => {
+  const [isEnrollmentOpen, setIsEnrollmentOpen] = useState(false);
+  const [program, setProgram] = useState<Program | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Program details - hardcoded for now, will fetch from API
+  const programDetails = {
+    programId: 'wow-program-2025',
+    name: 'The WOW Program',
+    price: 1500,
+    depositAmount: 300,
+    installmentAmount: 200,
+    installmentCount: 6,
+    capacity: 12,
+    currentEnrollment: 0,
+  };
+
+  useEffect(() => {
+    // Fetch program details from backend
+    const fetchProgram = async () => {
+      try {
+        const programs = await api.get<Program[]>('/programs?type=group');
+        if (programs && programs.length > 0) {
+          setProgram(programs[0]);
+        }
+      } catch (error) {
+        console.error('Failed to fetch program:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProgram();
+  }, []);
+
+  const spotsRemaining = program 
+    ? program.capacity - program.currentEnrollment 
+    : programDetails.capacity - programDetails.currentEnrollment;
+
   return (
-    <div className="min-h-screen bg-black-bg">
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <section className="bg-gradient-to-b from-dark-bg to-black-bg py-16 md:py-20 border-b-4 border-primary">
         <div className="container mx-auto px-4 lg:px-8">
@@ -17,7 +65,7 @@ const ProgramPage = () => {
       </section>
 
       {/* Two-Column Layout */}
-      <section className="bg-black-bg py-16 md:py-24">
+      <section className="bg-background py-16 md:py-24">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto items-start">
             {/* Left - Overview */}
@@ -35,7 +83,7 @@ const ProgramPage = () => {
                 Overview
               </h2>
 
-              <div className="space-y-6 text-white font-body text-lg leading-relaxed">
+              <div className="space-y-6 text-foreground font-body text-lg leading-relaxed">
                 <p>
                   At WOW occupational therapy, we offer a revolutionary and HIGHLY interactive intervention for CHILDREN. Our unique team approach to child and family services helps children with ADHD understand their challenges and develop personalized strategies to ignite learning. Kids learn BEST when they feel like they can be themselves.
                 </p>
@@ -61,13 +109,28 @@ const ProgramPage = () => {
               </h2>
 
               {/* Pricing Card */}
-              <div className="bg-dark-bg/80 backdrop-blur-sm p-8 rounded-xl border-2 border-primary/30 shadow-glow space-y-6">
+              <div className="bg-card p-8 rounded-xl border-2 border-primary/30 shadow-lg space-y-6">
                 <div>
                   <p className="font-heading text-primary text-2xl mb-2">6-week WOW Program:</p>
-                  <p className="font-heading text-white text-4xl md:text-5xl">$1500</p>
+                  <p className="font-heading text-foreground text-4xl md:text-5xl">$1500</p>
+                  {spotsRemaining <= 5 && spotsRemaining > 0 && (
+                    <p className="text-orange-500 font-body text-lg mt-2">
+                      ⚠️ Only {spotsRemaining} spots remaining!
+                    </p>
+                  )}
+                  {spotsRemaining === 0 && (
+                    <p className="text-destructive font-body text-lg mt-2">
+                      ❌ Program is full
+                    </p>
+                  )}
+                  {spotsRemaining > 5 && (
+                    <p className="text-primary font-body text-lg mt-2">
+                      ✓ {spotsRemaining} spots available
+                    </p>
+                  )}
                 </div>
 
-                <div className="space-y-3 text-white font-body">
+                <div className="space-y-3 text-foreground font-body">
                   <p className="text-lg">
                     <strong className="text-primary">Fall Term 2025:</strong><br />
                     Thursdays, September 10 - October 21, 2025
@@ -91,7 +154,7 @@ const ProgramPage = () => {
                   </p>
                 </div>
 
-                <div className="space-y-3 text-white font-body pt-4">
+                <div className="space-y-3 text-foreground font-body pt-4">
                   <p className="font-heading text-primary text-xl">Program Includes:</p>
                   <ul className="space-y-2 text-base list-disc list-inside">
                     <li>1 x personalized introductory document</li>
@@ -116,9 +179,9 @@ const ProgramPage = () => {
               </div>
 
               {/* How to Get Started */}
-              <div className="bg-dark-bg/80 backdrop-blur-sm p-8 rounded-xl border-2 border-primary/30 shadow-glow space-y-4">
+              <div className="bg-card p-8 rounded-xl border-2 border-primary/30 shadow-lg space-y-4">
                 <h3 className="font-heading uppercase text-primary text-2xl mb-4">How to Get Started</h3>
-                <div className="space-y-3 text-white font-body">
+                <div className="space-y-3 text-foreground font-body">
                   <p className="text-lg">
                     <strong className="text-primary">Email us for inquiries:</strong><br />
                     <a href="mailto:wowoccupationaltherapy@gmail.com" className="hover:text-primary transition-colors">wowoccupationaltherapy@gmail.com</a>
@@ -146,47 +209,47 @@ const ProgramPage = () => {
       <section className="bg-dark-bg py-16 md:py-24 border-y-4 border-primary/30">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="max-w-5xl mx-auto">
-            <h2 className="font-heading uppercase text-primary text-3xl md:text-5xl tracking-heading-lg text-center mb-12">
+            <h2 className="font-heading uppercase text-white text-3xl md:text-5xl tracking-heading-lg text-center mb-12">
               What to Expect
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
               {/* Personalized Plan */}
-              <div className="bg-black-bg/60 backdrop-blur-sm p-6 rounded-lg border border-primary/20 h-full flex flex-col">
+              <div className="bg-card p-6 rounded-lg border-2 border-primary/20 h-full flex flex-col">
                 <h3 className="font-heading text-primary text-xl md:text-2xl mb-3">1. Personalized Plan</h3>
-                <p className="text-white/90 font-body leading-relaxed flex-grow">
+                <p className="text-foreground font-body leading-relaxed flex-grow">
                   We start with an initial parent intake to understand your child's unique needs, strengths, and goals. This helps us create a tailored approach for their success.
                 </p>
               </div>
 
               {/* Dynamic Team Sessions */}
-              <div className="bg-black-bg/60 backdrop-blur-sm p-6 rounded-lg border border-primary/20 h-full flex flex-col">
+              <div className="bg-card p-6 rounded-lg border-2 border-primary/20 h-full flex flex-col">
                 <h3 className="font-heading text-primary text-xl md:text-2xl mb-3">2. Dynamic Team Sessions</h3>
-                <p className="text-white/90 font-body leading-relaxed flex-grow">
+                <p className="text-foreground font-body leading-relaxed flex-grow">
                   Interactive, engaging group sessions where kids learn through play, build connections with peers, and practice real-world strategies in a supportive environment.
                 </p>
               </div>
 
               {/* Expert Therapists */}
-              <div className="bg-black-bg/60 backdrop-blur-sm p-6 rounded-lg border border-primary/20 h-full flex flex-col">
+              <div className="bg-card p-6 rounded-lg border-2 border-primary/20 h-full flex flex-col">
                 <h3 className="font-heading text-primary text-xl md:text-2xl mb-3">3. Guided By Expert Therapists</h3>
-                <p className="text-white/90 font-body leading-relaxed flex-grow">
+                <p className="text-foreground font-body leading-relaxed flex-grow">
                   Led by Lindsay and Erin, each with over 20 years of pediatric occupational therapy experience, specializing in ADHD and executive function development.
                 </p>
               </div>
 
               {/* Ongoing Communication */}
-              <div className="bg-black-bg/60 backdrop-blur-sm p-6 rounded-lg border border-primary/20 h-full flex flex-col">
+              <div className="bg-card p-6 rounded-lg border-2 border-primary/20 h-full flex flex-col">
                 <h3 className="font-heading text-primary text-xl md:text-2xl mb-3">4. Ongoing Communication & Progress Reporting</h3>
-                <p className="text-white/90 font-body leading-relaxed flex-grow">
+                <p className="text-foreground font-body leading-relaxed flex-grow">
                   Weekly progress reports keep you informed about your child's development, breakthroughs, and areas of focus throughout the program.
                 </p>
               </div>
 
               {/* Parent Consultation */}
-              <div className="bg-black-bg/60 backdrop-blur-sm p-6 rounded-lg border border-primary/20 md:col-span-2 h-full flex flex-col">
+              <div className="bg-card p-6 rounded-lg border-2 border-primary/20 md:col-span-2 h-full flex flex-col">
                 <h3 className="font-heading text-primary text-xl md:text-2xl mb-3">5. Parent Summary Consultation</h3>
-                <p className="text-white/90 font-body leading-relaxed flex-grow">
+                <p className="text-foreground font-body leading-relaxed flex-grow">
                   At the program's end, we provide a comprehensive consultation summarizing your child's progress, strategies that work best for them, and actionable recommendations for continued success at home and school.
                 </p>
               </div>
@@ -202,13 +265,51 @@ const ProgramPage = () => {
             Ready to Get Started?
           </h2>
           <p className="text-white font-body text-lg mb-8">
-            Email us for more information and registration details
+            {spotsRemaining > 0 
+              ? 'Secure your child\'s spot in the program today!' 
+              : 'Join our waitlist for the next session'}
           </p>
-          <Button asChild className="bg-primary hover:bg-primary-hover text-lg px-8 py-6 uppercase font-heading">
-            <Link to="/connect">CONTACT US</Link>
-          </Button>
+          {spotsRemaining > 0 ? (
+            <Button 
+              onClick={() => setIsEnrollmentOpen(true)}
+              className="bg-primary hover:bg-primary-hover text-lg px-8 py-6 uppercase font-heading"
+            >
+              ENROLL NOW
+            </Button>
+          ) : (
+            <Button asChild className="bg-primary hover:bg-primary-hover text-lg px-8 py-6 uppercase font-heading">
+              <a href="mailto:wowoccupationaltherapy@gmail.com">JOIN WAITLIST</a>
+            </Button>
+          )}
         </div>
       </section>
+
+      {/* Enrollment Dialog */}
+      <Dialog open={isEnrollmentOpen} onOpenChange={setIsEnrollmentOpen}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="font-heading text-primary text-2xl">
+              Enroll in The WOW Program
+            </DialogTitle>
+            <DialogDescription>
+              Complete the form below to enroll in our 6-week WOW Program. We'll contact you within 24 hours to confirm your enrollment and answer any questions.
+            </DialogDescription>
+          </DialogHeader>
+          <ProgramEnrollmentForm
+            programId={program?.programId || programDetails.programId}
+            programName={program?.name || programDetails.name}
+            programPrice={program?.price || programDetails.price}
+            depositAmount={programDetails.depositAmount}
+            installmentAmount={programDetails.installmentAmount}
+            installmentCount={programDetails.installmentCount}
+            onEnrollmentComplete={() => {
+              setIsEnrollmentOpen(false);
+              // Refresh program data to update spots remaining
+              window.location.reload();
+            }}
+          />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

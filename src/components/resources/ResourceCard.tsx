@@ -20,7 +20,7 @@ export const ResourceCard = ({
   return (
     <div
       className={cn(
-        'bg-dark-bg/50 backdrop-blur-sm p-6 md:p-8 rounded-xl border-2 transition-all',
+        'bg-card p-6 md:p-8 rounded-xl border-2 transition-all',
         highlight
           ? 'border-primary/40 shadow-glow hover:border-primary/60'
           : 'border-primary/20 hover:border-primary/30',
@@ -35,7 +35,7 @@ export const ResourceCard = ({
       <h3 className="font-heading uppercase text-primary text-xl mb-3">
         {title}
       </h3>
-      <div className="text-white/80 font-body leading-relaxed">
+      <div className="text-foreground font-body leading-relaxed">
         {children}
       </div>
     </div>

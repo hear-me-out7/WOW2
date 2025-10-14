@@ -3,13 +3,17 @@ import { ResourceBreadcrumb } from '@/components/resources/ResourceBreadcrumb';
 import { ResourceHero } from '@/components/resources/ResourceHero';
 import { ResourceSection } from '@/components/resources/ResourceSection';
 import { ResourceCard } from '@/components/resources/ResourceCard';
-import { ResourceCTA } from '@/components/resources/ResourceCTA';
 import { PageTransition } from '@/components/PageTransition';
+import ResourceStickyCtaSidebar from '@/components/ResourceStickyCtaSidebar';
+import ResourceInlineCta from '@/components/ResourceInlineCta';
+import ResourceEndCta from '@/components/ResourceEndCta';
+import ResourceDownloadGate from '@/components/ResourceDownloadGate';
+import RelatedResourcesUpsell from '@/components/RelatedResourcesUpsell';
 
 const SocialEmotionalPage = () => {
   return (
     <PageTransition>
-      <div className="min-h-screen bg-black-bg">
+      <div className="min-h-screen bg-background">
         <ResourceBreadcrumb resourceTitle="Social Emotional Development" />
 
         <ResourceHero
@@ -18,10 +22,23 @@ const SocialEmotionalPage = () => {
           description="Building emotional intelligence, social skills, and resilience for children with ADHD"
         />
 
+        {/* Main Content with Sidebar */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="grid lg:grid-cols-[1fr_300px] gap-8 items-start">
+            {/* Main Content */}
+            <div>
+              {/* Download Gate */}
+              <ResourceDownloadGate
+                resourceTitle="Social & Emotional Skills Guide"
+                resourceDescription="Download our guide to emotional regulation strategies and social skills development for children with ADHD."
+                magnetId="social-emotional-guide"
+                className="mb-8"
+              />
+
         {/* Introduction */}
         <ResourceSection bgColor="dark">
-          <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
-            <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6">
+          <div className="space-y-6 text-white font-body text-lg leading-relaxed">
+            <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading mb-6">
               The Emotional Experience of ADHD
             </h2>
             <p>
@@ -39,19 +56,19 @@ const SocialEmotionalPage = () => {
         {/* Understanding Emotional Regulation */}
         <ResourceSection bgColor="black">
           <div className="bg-gradient-to-b from-dark-bg to-black-bg p-8 md:p-12 rounded-xl border-2 border-primary/30">
-            <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6">
+            <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading mb-6">
               Understanding Emotional Regulation in ADHD
             </h2>
-            <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
+            <div className="space-y-6 text-white font-body text-lg leading-relaxed">
               <p>
                 Emotional regulation involves multiple skills that children with ADHD find challenging: recognizing emotions in themselves and others, understanding what triggered the emotion, pausing before reacting, choosing an appropriate response, and shifting out of intense emotional states.
               </p>
               <p>
                 Research shows that emotional development in children with ADHD lags approximately 30% behind their peers. A 10-year-old with ADHD might have the emotional regulation skills of a typically developing 7-year-old. This gap helps explain why your intelligent, capable child might have meltdowns that seem disproportionate to the situation—their emotional brain is genuinely younger than their chronological age.
               </p>
-              <div className="bg-primary/10 p-6 rounded-lg border-l-4 border-primary my-6">
+              <div className="bg-card p-6 rounded-lg border-l-4 border-primary my-6">
                 <p className="text-primary font-semibold mb-2">Important to Remember:</p>
-                <p className="italic">
+                <p className="italic text-foreground/90">
                   Delayed emotional development doesn't mean your child won't catch up. With support, practice, and understanding, emotional regulation skills continue to develop. Your patient, empathetic support during emotional moments is actually teaching these skills, even when it doesn't feel like it.
                 </p>
               </div>
@@ -62,10 +79,16 @@ const SocialEmotionalPage = () => {
           </div>
         </ResourceSection>
 
+        {/* Inline CTA 1 */}
+        <ResourceInlineCta
+          variant="consultation"
+          message="Concerned about your child's emotional regulation or social skills? Let's discuss personalized strategies to support their growth."
+        />
+
         {/* Building Emotional Intelligence */}
         <ResourceSection bgColor="dark" title="Building Emotional Intelligence">
           <div className="space-y-8">
-            <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
+            <div className="space-y-6 text-white font-body text-lg leading-relaxed">
               <p>
                 Emotional intelligence—the ability to understand and manage emotions—is a foundational skill for success in life. Here's how to help your child develop emotional intelligence:
               </p>
@@ -75,9 +98,9 @@ const SocialEmotionalPage = () => {
               <p className="mb-3">
                 Many children with ADHD struggle to identify what they're feeling. Emotions might feel like an undifferentiated "bad" or "good" without nuance.
               </p>
-              <div className="bg-black/30 p-4 rounded-lg mt-3">
+              <div className="bg-card/50 p-4 rounded-lg mt-3">
                 <p className="text-primary font-semibold mb-2">Strategies to Help:</p>
-                <ul className="space-y-2 text-sm">
+                <ul className="space-y-2 text-sm text-foreground/90">
                   <li>• Use emotion charts with faces showing different feelings</li>
                   <li>• Name your own emotions frequently: "I'm feeling frustrated because..."</li>
                   <li>• Practice emotion charades—act out feelings and guess them</li>
@@ -92,16 +115,16 @@ const SocialEmotionalPage = () => {
               <p className="mb-3">
                 Before children can manage emotions, they need to know all emotions are okay to feel. Validation doesn't mean accepting all behaviors, but it means accepting all feelings.
               </p>
-              <div className="bg-black/30 p-4 rounded-lg mt-3">
+              <div className="bg-card/50 p-4 rounded-lg mt-3">
                 <p className="text-primary font-semibold mb-2">Validating Language:</p>
-                <ul className="space-y-2 text-sm">
+                <ul className="space-y-2 text-sm text-foreground/90">
                   <li>• "I can see you're really upset right now"</li>
                   <li>• "It makes sense that you're frustrated"</li>
                   <li>• "That would make me angry too"</li>
                   <li>• "Your feelings are important"</li>
                   <li>• "It's okay to feel sad about this"</li>
                 </ul>
-                <p className="mt-3 italic text-white/70">
+                <p className="mt-3 italic text-foreground">
                   Avoid: "Don't be upset," "It's not a big deal," "You're overreacting"—these invalidate feelings and make emotional regulation harder.
                 </p>
               </div>
@@ -111,9 +134,9 @@ const SocialEmotionalPage = () => {
               <p className="mb-3">
                 Once children can identify emotions, they need tools to manage them. Different strategies work for different children and different situations.
               </p>
-              <div className="bg-black/30 p-4 rounded-lg mt-3">
+              <div className="bg-card/50 p-4 rounded-lg mt-3">
                 <p className="text-primary font-semibold mb-2">Teach a Toolbox of Strategies:</p>
-                <ul className="space-y-2 text-sm">
+                <ul className="space-y-2 text-sm text-foreground/90">
                   <li>• Deep breathing techniques</li>
                   <li>• Movement breaks (running, jumping, dancing)</li>
                   <li>• Sensory tools (stress ball, putty, weighted blanket)</li>
@@ -123,7 +146,7 @@ const SocialEmotionalPage = () => {
                   <li>• Listening to music</li>
                   <li>• Progressive muscle relaxation</li>
                 </ul>
-                <p className="mt-3 text-white/80">
+                <p className="mt-3 text-foreground">
                   Practice these strategies during calm times, not just during meltdowns. Create a "calm-down kit" together with tools your child chooses.
                 </p>
               </div>
@@ -133,7 +156,7 @@ const SocialEmotionalPage = () => {
 
         {/* Social Skills Development */}
         <ResourceSection bgColor="black" title="Social Skills and Friendship">
-          <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed mb-8">
+          <div className="space-y-6 text-white font-body text-lg leading-relaxed mb-8">
             <p>
               Making and keeping friends can be one of the most challenging aspects of ADHD. The same symptoms that affect academics and behavior also impact social relationships—impulsivity leads to interrupting or invading personal space, inattention means missing social cues, hyperactivity can overwhelm quieter peers, and emotional intensity might come across as dramatic or immature.
             </p>
@@ -143,9 +166,9 @@ const SocialEmotionalPage = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-dark-bg/50 backdrop-blur-sm p-6 md:p-8 rounded-xl border-2 border-primary/20">
+            <div className="bg-card p-6 md:p-8 rounded-xl border-2 border-primary/20">
               <h3 className="font-heading text-primary text-xl mb-4">Common Social Challenges</h3>
-              <ul className="space-y-3 text-white/80">
+              <ul className="space-y-3 text-foreground/80">
                 <li className="flex items-start">
                   <span className="text-primary mr-2">•</span>
                   <span><strong>Interrupting:</strong> Impulsivity makes waiting to speak incredibly difficult</span>
@@ -173,9 +196,9 @@ const SocialEmotionalPage = () => {
               </ul>
             </div>
 
-            <div className="bg-dark-bg/50 backdrop-blur-sm p-6 md:p-8 rounded-xl border-2 border-primary/20">
+            <div className="bg-card p-6 md:p-8 rounded-xl border-2 border-primary/20">
               <h3 className="font-heading text-primary text-xl mb-4">Supporting Social Success</h3>
-              <ul className="space-y-3 text-white/80">
+              <ul className="space-y-3 text-foreground/80">
                 <li className="flex items-start">
                   <span className="text-primary mr-2">•</span>
                   <span><strong>Structured playdates:</strong> Short, planned activities prevent boredom and provide structure</span>
@@ -204,17 +227,23 @@ const SocialEmotionalPage = () => {
             </div>
           </div>
 
-          <div className="bg-primary/10 p-6 md:p-8 rounded-lg border-l-4 border-primary mt-8">
+          <div className="bg-card p-6 md:p-8 rounded-lg border-l-4 border-primary mt-8">
             <p className="text-primary font-semibold mb-2">Remember:</p>
-            <p className="text-white/90">
+            <p className="text-foreground">
               Not every child needs a large friend group. Some children with ADHD thrive with one or two close friends who understand them. Quality matters more than quantity when it comes to friendships.
             </p>
           </div>
         </ResourceSection>
 
+        {/* Inline CTA 2 */}
+        <ResourceInlineCta
+          variant="program"
+          message="The WOW Program includes targeted support for emotional regulation and social skills development in a supportive environment."
+        />
+
         {/* Building Resilience */}
         <ResourceSection bgColor="dark" title="Building Resilience and Self-Esteem">
-          <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed mb-8">
+          <div className="space-y-6 text-white font-body text-lg leading-relaxed mb-8">
             <p>
               Children with ADHD hear a lot of negative feedback. "Sit still." "Pay attention." "Stop interrupting." "Why can't you just..." Over time, this constant correction can significantly impact self-esteem. Many children with ADHD develop a belief that they're "bad kids" or that something is fundamentally wrong with them.
             </p>
@@ -265,19 +294,19 @@ const SocialEmotionalPage = () => {
         {/* Family Support */}
         <ResourceSection bgColor="black">
           <div className="bg-gradient-to-b from-dark-bg to-black-bg p-8 md:p-12 rounded-xl border-2 border-primary/30 shadow-glow">
-            <h2 className="font-heading uppercase text-primary text-2xl md:text-3xl tracking-heading mb-6">
+            <h2 className="font-heading uppercase text-white text-2xl md:text-3xl tracking-heading mb-6">
               Family Dynamics and Sibling Relationships
             </h2>
-            <div className="space-y-6 text-white/90 font-body text-lg leading-relaxed">
+            <div className="space-y-6 text-white font-body text-lg leading-relaxed">
               <p>
                 ADHD affects the whole family, not just the child with the diagnosis. Siblings might feel overlooked when their brother or sister with ADHD needs extra attention and support. Parents often feel exhausted from managing challenging behaviors while worrying about being fair to all their children.
               </p>
               <p>
                 These feelings are valid and common. Acknowledge the impact on the whole family while also recognizing that every family member has different needs. "Fair" doesn't always mean "equal"—it means each person gets what they need to thrive.
               </p>
-              <div className="bg-primary/10 p-6 rounded-lg border-l-4 border-primary my-6">
+              <div className="bg-card p-6 rounded-lg border-l-4 border-primary my-6">
                 <p className="text-primary font-semibold mb-2">For Siblings:</p>
-                <ul className="space-y-2">
+                <ul className="space-y-2 text-foreground/90">
                   <li>• Create one-on-one time with each child regularly</li>
                   <li>• Acknowledge siblings' feelings without making them feel guilty</li>
                   <li>• Help siblings understand ADHD without using it as an excuse</li>
@@ -295,7 +324,39 @@ const SocialEmotionalPage = () => {
           </div>
         </ResourceSection>
 
-        <ResourceCTA />
+              {/* Related Resources */}
+              <RelatedResourcesUpsell
+                resources={[
+                  {
+                    title: 'Executive Functioning Skills',
+                    description: 'Strategies for improving self-monitoring and impulse control',
+                    link: '/resources/executive-functioning',
+                    icon: 'brain',
+                  },
+                  {
+                    title: 'Sensory & Motor Development',
+                    description: 'Understanding sensory processing and its impact on emotional regulation',
+                    link: '/resources/sensory-motor',
+                    icon: 'target',
+                  },
+                  {
+                    title: 'Tips & Tricks for Daily Success',
+                    description: 'Practical strategies for managing daily challenges',
+                    link: '/resources/tips-and-tricks',
+                    icon: 'target',
+                  },
+                ]}
+                className="mb-8"
+              />
+
+              {/* End CTA */}
+              <ResourceEndCta />
+            </div>
+
+            {/* Sticky Sidebar */}
+            <ResourceStickyCtaSidebar />
+          </div>
+        </div>
       </div>
     </PageTransition>
   );

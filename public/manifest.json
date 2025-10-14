@@ -1,0 +1,23 @@
+{
+  "name": "WOW ADHD - Occupational Therapy for Kids",
+  "short_name": "WOW ADHD",
+  "description": "Empowering kids with ADHD through occupational therapy in Calgary. Virtual consultations and group programs available.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#FE0083",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "medical", "lifestyle"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}

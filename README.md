@@ -21,7 +21,7 @@ This project is built with:
 - **TypeScript** - Type-safe JavaScript
 - **Vite** - Build tool and dev server
 - **Tailwind CSS** - Utility-first CSS framework
-- **AWS Amplify** - Production hosting with SPA routing (updated rules)
+- **AWS Amplify** - Production hosting with SPA routing (rules updated to /*)
 - **AWS Serverless** - Backend deployment
 - **shadcn/ui** - Component library
 - **React Router** - Client-side routing

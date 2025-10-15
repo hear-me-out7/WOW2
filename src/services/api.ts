@@ -1,7 +1,7 @@
 import { toast } from '@/hooks/use-toast';
 
 // Backend API base URL - update this when deploying backend
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://your-api-gateway-url.amazonaws.com/dev';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://your-api-gateway-url.amazonaws.com/dev';
 
 interface ApiResponse<T> {
   data: T;
